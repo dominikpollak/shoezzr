@@ -15,15 +15,19 @@ const HomepageCard: React.FC<HomepageCardProps> = ({
   altTitle,
 }) => {
   return (
-    <Link to={link} className="w-[20%] h-[40%]">
-      <div className="h-[90%] w-full rounded-lg">
+    <Link
+      to={link}
+      className="group homepage-card ring-4 ring-white hover:ring-offset-4 ring-offset-black relative w-[25%] h-[50%] rounded-2xl shadow-md duration-300 overflow-hidden"
+    >
+      <div className="h-[85%] w-full">
         <img
           src={image}
           alt={altTitle}
-          className="w-full h-full object-cover"
+          draggable={false}
+          className="w-full h-full object-cover rounded-t-2xl duration-500 group-hover:scale-110 group-hover:brightness-[80%]"
         />
       </div>
-      <div className="h-[15%] w-full flex justify-center items-center text-xl bg-white">
+      <div className="absolute h-[15%] w-full flex justify-center items-center text-xl bg-white font-main tracking-wider rounded-b-2xl border-t-[0.5rem] border-orange-600 duration-500 group-hover:tracking-[0.4rem] group-hover:bg-black group-hover:text-white">
         {title}
       </div>
     </Link>

@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import KidsCard from '../assets/images/homepage/kids.jpeg';
 import MenCard from '../assets/images/homepage/men.jpg';
 import WomenCard from '../assets/images/homepage/women.jpg';
+import HomeTextBanner from '../components/banners/HomeTextBanner';
 import HomepageCard from '../components/cards/HomepageCard';
 
 export default function Home() {
@@ -18,7 +19,11 @@ export default function Home() {
   return (
     <div>
       <div className="h-[2000px] bg-gray-900 w-screen box-border overflow-x-hidden">
-        <div className="bodydiv h-screen w-full flex justify-around items-center bg-gray-900 border-t-[0.5rem] border-orange-600 box-border overflow-x-hidden">
+        {/* <div className="absolute bg-gradient-to-br from-slate-800/[0.5] to-slate-500/[0.5] skew-y-6 w-[60%] h-[60%]" /> */}
+        <div className="flex justify-center items-center h-[12%]">
+          <HomeTextBanner />
+        </div>
+        <div className="bodydiv h-screen w-full flex justify-around items-start pt-4 bg-gray-900 box-border overflow-x-hidden">
           <HomepageCard
             image={MenCard}
             link={'/men'}
