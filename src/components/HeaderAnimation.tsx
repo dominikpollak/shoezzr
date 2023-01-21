@@ -56,10 +56,13 @@ const Header = () => {
       targets: '.headercontainer',
       translateX: '-360%',
     });
+    tl.add({}, '-=1200').complete = function () {
+      document.body.classList.remove('is-loading');
+    };
   }, []);
 
   return (
-    <div className="absolute z-30 landingbg bg-white w-full h-screen flex justify-center items-center">
+    <div className="relative z-30 landingbg bg-white w-full h-screen flex justify-center items-center">
       <Link
         to="/"
         className="absolute z-40 headercontainer w-[70%] h-auto p-24 rounded-full duration-200 hover:w-[69%]"

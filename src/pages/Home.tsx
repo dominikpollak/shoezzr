@@ -19,8 +19,9 @@ export default function Home() {
   return (
     <div>
       <div className="h-[2000px] bg-gray-900 w-screen box-border overflow-x-hidden">
-        {/* <div className="absolute bg-gradient-to-br from-slate-800/[0.5] to-slate-500/[0.5] skew-y-6 w-[60%] h-[60%]" /> */}
-        <div className="flex justify-center items-center h-[12%]">
+        <div className="absolute bg-gradient-to-br from-slate-800/[0.3] to-slate-500/[0.3] skew-y-12 w-[50%] h-[60%]" />
+        <div className="absolute bg-gradient-to-br from-orange-400/[0.3] to-orange-600/[0.3] -skew-y-12 w-[50%] h-[60%] right-0" />
+        <div className="relative flex justify-center items-center h-[11%]">
           <HomeTextBanner />
         </div>
         <div className="bodydiv h-screen w-full flex justify-around items-start pt-4 bg-gray-900 box-border overflow-x-hidden">

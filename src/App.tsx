@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <HeaderAnimation />
+        {/* Includes on load animation*/}
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import Account from '../assets/icons/account-icon.svg';
 import Cart from '../assets/icons/cart-icon.svg';
+import HeaderAnimation from './HeaderAnimation';
 
 export default function Navbar() {
   useEffect(() => {
@@ -13,8 +14,10 @@ export default function Navbar() {
     });
   }, []);
   return (
-    <div className="border-b-[0.5rem] border-orange-600">
-      <div className="navbar absolute z-30 top-0 h-[10vh] ml-20 w-[calc(100%-5rem)] flex justify-end items-center font-main box-border overflow-x-hidden">
+    <>
+      <HeaderAnimation />
+      {/* <div className="border-b-[0.5rem] border-orange-600"> */}
+      <div className="navbar absolute z-40 top-0 h-[10vh] ml-20 w-[calc(100%-5rem)] flex justify-end items-center font-main box-border overflow-x-hidden">
         <div className="flex justify-between items-center w-[85%] h-[50%] mr-3">
           <section className="w-[18%] h-full flex justify-center items-center">
             <div className="w-full h-full text-black flex items-center border-[0.2rem] border-black rounded-md">
@@ -76,6 +79,7 @@ export default function Navbar() {
           </section>
         </div>
       </div>
-    </div>
+      <div className="navbar absolute z-50 bg-orange-600 w-screen top-[10vh] h-[1%]" />
+    </>
   );
 }

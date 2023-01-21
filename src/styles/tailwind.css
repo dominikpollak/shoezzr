@@ -22,4 +22,9 @@
   body {
     overflow-x: hidden;
   }
+
+  .is-loading {
+    pointer-events: none;
+    overflow: hidden;
+  }
 }
