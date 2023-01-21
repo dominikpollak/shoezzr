@@ -6,9 +6,7 @@ import React from 'react';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <div className="selection-orange-300">
-      <App />
-    </div>
+    <App />
   </React.StrictMode>
 );
 

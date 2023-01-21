@@ -1,17 +1,17 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import HeaderAnimation from '../src/components/HeaderAnimation';
 import Navbar from '../src/components/Navbar';
 import Home from './pages/Home';
 import Kids from './pages/Kids';
 import Men from './pages/Men';
 import Sales from './pages/Sales';
 import Women from './pages/Women';
+import LoadAnimations from './components/LoadAnimations';
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        {/* Includes on load animation*/}
+        <LoadAnimations />
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

@@ -3,22 +3,17 @@ import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import Account from '../assets/icons/account-icon.svg';
 import Cart from '../assets/icons/cart-icon.svg';
-import HeaderAnimation from './HeaderAnimation';
 
 export default function Navbar() {
-  useEffect(() => {
-    anime({
-      targets: '.navbar',
-      scale: [0, 1],
-      delay: 3700,
-    });
-  }, []);
   return (
     <>
-      <HeaderAnimation />
       {/* <div className="border-b-[0.5rem] border-orange-600"> */}
-      <div className="navbar absolute z-40 top-0 h-[10vh] ml-20 w-[calc(100%-5rem)] flex justify-end items-center font-main box-border overflow-x-hidden">
-        <div className="flex justify-between items-center w-[85%] h-[50%] mr-3">
+      <div className="navbar relative z-40 top-0 h-[10vh] w-full flex justify-center items-center font-main box-border">
+        <div className="flex justify-between items-center w-[100%] h-[50%] mr-3">
+          <NavLink
+            to="/"
+            className="w-[10%] h-auto p-24 duration-200 bg-transparent"
+          ></NavLink>
           <section className="w-[18%] h-full flex justify-center items-center">
             <div className="w-full h-full text-black flex items-center border-[0.2rem] border-black rounded-md">
               <input
@@ -36,7 +31,7 @@ export default function Navbar() {
               News
             </NavLink>
           </section>
-          <section className="w-[50%] h-full flex justify-around items-center">
+          <section className="w-[40%] h-full flex justify-around items-center">
             <NavLink
               to="/men"
               className="nav-link w-auto h-[60%] text-black inline-block justify-center items-center text-xl after:block after:my-0 after:mx-auto after:border-b-4 after:border-black after:w-[5px] after:rounded-full hover:after:w-full after:duration-300"

@@ -7,15 +7,6 @@ import HomeTextBanner from '../components/banners/HomeTextBanner';
 import HomepageCard from '../components/cards/HomepageCard';
 
 export default function Home() {
-  useEffect(() => {
-    anime({
-      targets: '.bodydiv .card',
-      scale: [0, 1],
-      duration: 500,
-      easing: 'easeInOutQuad',
-      delay: 3650,
-    });
-  });
   return (
     <div>
       <div className="h-[2000px] bg-gray-900 w-screen box-border overflow-x-hidden">
@@ -24,25 +15,27 @@ export default function Home() {
         <div className="relative flex justify-center items-center h-[11%]">
           <HomeTextBanner />
         </div>
-        <div className="bodydiv h-screen w-full flex justify-around items-start pt-4 bg-gray-900 box-border overflow-x-hidden">
-          <HomepageCard
-            image={MenCard}
-            link={'/men'}
-            title={'Men'}
-            altTitle={'men'}
-          />
-          <HomepageCard
-            image={WomenCard}
-            link={'/women'}
-            title={'Women'}
-            altTitle={'women'}
-          />
-          <HomepageCard
-            image={KidsCard}
-            link={'/kids'}
-            title={'Kids'}
-            altTitle={'kids'}
-          />
+        <div className="bodydiv h-screen w-full flex justify-around items-start pt-4 bg-gray-900">
+          <section>
+            <HomepageCard
+              image={MenCard}
+              link={'/men'}
+              title={'Men'}
+              altTitle={'men'}
+            />
+            <HomepageCard
+              image={WomenCard}
+              link={'/women'}
+              title={'Women'}
+              altTitle={'women'}
+            />
+            <HomepageCard
+              image={KidsCard}
+              link={'/kids'}
+              title={'Kids'}
+              altTitle={'kids'}
+            />
+          </section>
           {/* <HomepageCard
           image={}
           link={'/sales'}

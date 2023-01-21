@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 //   tl: anime.AnimeTimelineInstance;
 // }
 
-const Header = () => {
+const LoadAnimations = () => {
   useEffect(() => {
     const tl = anime.timeline({});
 
@@ -56,19 +56,34 @@ const Header = () => {
       targets: '.headercontainer',
       translateX: '-360%',
     });
-    tl.add({}, '-=1200').complete = function () {
+    tl.add(
+      {
+        targets: '.navbar',
+        scale: [0, 1],
+      },
+      '-=750'
+    );
+    tl.add(
+      {
+        targets: '.bodydiv',
+        scale: [0, 1],
+        duration: 900,
+      },
+      '-=950'
+    );
+    tl.add({}, '-=1400').complete = function () {
       document.body.classList.remove('is-loading');
     };
   }, []);
 
   return (
-    <div className="relative z-30 landingbg bg-white w-full h-screen flex justify-center items-center">
+    <div className="absolute z-30 landingbg bg-white w-full h-screen flex justify-center items-center overflow-y-hidden">
       <Link
         to="/"
-        className="absolute z-40 headercontainer w-[70%] h-auto p-24 rounded-full duration-200 hover:w-[69%]"
+        className="absolute z-[60] headercontainer w-[70%] h-auto p-24 rounded-full duration-200"
       >
         <svg
-          className="rounded-xl z-40 headersvg w-full h-full"
+          className="headersvg w-full h-full"
           width="564"
           height="132"
           viewBox="0 0 564 132"
@@ -152,4 +167,4 @@ const Header = () => {
     </div>
   );
 };
-export default Header;
+export default LoadAnimations;
