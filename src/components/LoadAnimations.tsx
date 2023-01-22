@@ -59,28 +59,31 @@ const LoadAnimations = () => {
     tl.add(
       {
         targets: '.navbar',
-        scale: [0, 1],
-      },
-      '-=750'
-    );
-    tl.add(
-      {
-        targets: '.bodydiv',
-        scale: [0, 1],
-        duration: 900,
+        translateX: ['100%', 0],
+        easing: 'easeOutQuint',
       },
       '-=950'
     );
-    tl.add({}, '-=1400').complete = function () {
+    tl.add(
+      {
+        targets: '.homepage-body',
+        // scale: [0, 1],
+        translateX: ['100%', 0],
+        easing: 'easeOutQuint',
+        duration: 900,
+      },
+      '-=1050'
+    );
+    tl.add({}, '-=1500').complete = function () {
       document.body.classList.remove('is-loading');
     };
   }, []);
 
   return (
-    <div className="absolute z-30 landingbg bg-white w-full h-screen flex justify-center items-center overflow-y-hidden">
+    <div className="absolute z-30 landingbg bg-slate-100 w-full h-screen flex justify-center items-center overflow-y-hidden">
       <Link
         to="/"
-        className="absolute z-[60] headercontainer w-[70%] h-auto p-24 rounded-full duration-200"
+        className="absolute z-50 headercontainer w-[70%] h-auto p-24 rounded-full duration-200 hover:invert"
       >
         <svg
           className="headersvg w-full h-full"

@@ -9,7 +9,7 @@ import LoadAnimations from './components/LoadAnimations';
 
 function App() {
   return (
-    <>
+    <div className="bg-gray-900 ">
       <BrowserRouter>
         <LoadAnimations />
         <Navbar />
@@ -21,7 +21,7 @@ function App() {
           <Route path="/sales" element={<Sales />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 

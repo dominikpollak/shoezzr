@@ -1,5 +1,3 @@
-import anime from 'animejs/lib/anime.es.js';
-import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import Account from '../assets/icons/account-icon.svg';
 import Cart from '../assets/icons/cart-icon.svg';
@@ -8,12 +6,8 @@ export default function Navbar() {
   return (
     <>
       {/* <div className="border-b-[0.5rem] border-orange-600"> */}
-      <div className="navbar relative z-40 top-0 h-[10vh] w-full flex justify-center items-center font-main box-border">
+      <div className="navbar relative z-40 top-0 h-[10vh] w-[82%] flex justify-center items-center font-main box-border ml-[18%]">
         <div className="flex justify-between items-center w-[100%] h-[50%] mr-3">
-          <NavLink
-            to="/"
-            className="w-[10%] h-auto p-24 duration-200 bg-transparent"
-          ></NavLink>
           <section className="w-[18%] h-full flex justify-center items-center">
             <div className="w-full h-full text-black flex items-center border-[0.2rem] border-black rounded-md">
               <input
@@ -64,13 +58,19 @@ export default function Navbar() {
             </NavLink>
           </section>
           <section className="flex justify-around items-center w-[10%]">
-            <div className="relative text-black flex justify-center items-center text-xl">
+            <NavLink
+              to="/cart"
+              className="relative text-black flex justify-center items-center text-xl"
+            >
               <img className="w-[90%]" src={Cart} alt="cart icon" />
               <div className="absolute z-[60] h-[10%] w-auto rounded-full bg-orange-600 bottom-0 right-0"></div>
-            </div>
-            <div className="text-black flex justify-center items-center text-xl">
+            </NavLink>
+            <NavLink
+              to="/account"
+              className="text-black flex justify-center items-center text-xl"
+            >
               <img className="w-[90%]" src={Account} alt="account icon" />
-            </div>
+            </NavLink>
           </section>
         </div>
       </div>
