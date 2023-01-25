@@ -83,7 +83,7 @@ const LoadAnimations = () => {
     <div className="absolute z-30 landingbg bg-slate-100 w-full h-screen flex justify-center items-center overflow-y-hidden">
       <Link
         to="/"
-        className="absolute z-50 headercontainer w-[70%] h-auto p-24 rounded-full duration-200 hover:invert"
+        className="absolute z-50 headercontainer w-[70%] h-auto p-24 rounded-full"
       >
         <svg
           className="headersvg w-full h-full"

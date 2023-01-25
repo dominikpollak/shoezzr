@@ -24,7 +24,7 @@ const HomepageCard: React.FC<HomepageCardProps> = ({
           src={image}
           alt={altTitle}
           draggable={false}
-          className="w-full h-full object-cover rounded-t-2xl duration-500 group-hover:scale-110 group-hover:brightness-[80%]"
+          className="w-full h-full object-cover object-center rounded-t-2xl duration-500 group-hover:scale-110 group-hover:brightness-[80%]"
         />
       </div>
       <div className="absolute h-[15%] w-full flex justify-center items-center text-xl bg-white font-main tracking-wider rounded-b-2xl border-t-[0.5rem] border-orange-600 duration-500 group-hover:tracking-[0.4rem] group-hover:bg-black group-hover:text-white">

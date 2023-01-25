@@ -25,7 +25,7 @@ export default function Navbar() {
               News
             </NavLink>
           </section>
-          <section className="w-[40%] h-full flex justify-around items-center">
+          <section className="xl:w-[45%] h-full flex justify-around items-center">
             <NavLink
               to="/men"
               className="nav-link w-auto h-[60%] text-black inline-block justify-center items-center text-xl after:block after:my-0 after:mx-auto after:border-b-4 after:border-black after:w-[5px] after:rounded-full hover:after:w-full after:duration-300"

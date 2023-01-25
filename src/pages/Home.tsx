@@ -1,6 +1,6 @@
-import KidsCard from '../assets/images/homepage/kids.jpeg';
-import MenCard from '../assets/images/homepage/men.jpg';
-import WomenCard from '../assets/images/homepage/women.jpg';
+import JordanImg from '../assets/images/homepage/jordan.png';
+import NikeImg from '../assets/images/homepage/nike.jpg';
+import AdidasImg from '../assets/images/homepage/adidas.png';
 import HomeTextBanner from '../components/banners/HomeTextBanner';
 import HomepageCard from '../components/cards/HomepageCard';
 import SalesCard from '../components/cards/SalesCard';
@@ -17,22 +17,22 @@ export default function Home() {
         <div className="homepage-body h-screen w-full pt-4">
           <section className="flex justify-around items-start h-[50%]">
             <HomepageCard
-              image={MenCard}
-              link={'/men'}
-              title={'Men'}
-              altTitle={'men'}
+              image={JordanImg}
+              link={'/jordan'}
+              title={'Jordan'}
+              altTitle={'jordan'}
             />
             <HomepageCard
-              image={WomenCard}
-              link={'/women'}
-              title={'Women'}
-              altTitle={'women'}
+              image={NikeImg}
+              link={'/nike'}
+              title={'Nike'}
+              altTitle={'nike'}
             />
             <HomepageCard
-              image={KidsCard}
-              link={'/kids'}
-              title={'Kids'}
-              altTitle={'kids'}
+              image={AdidasImg}
+              link={'/adidas'}
+              title={'Adidas'}
+              altTitle={'adidas'}
             />
           </section>
           <section className="w-full h-[20%] flex justify-center items-center">
