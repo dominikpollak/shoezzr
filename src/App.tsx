@@ -9,19 +9,17 @@ import Nike from './pages/Nike';
 
 function App() {
   return (
-    <div className="bg-gray-900 ">
-      <BrowserRouter>
-        <LoadAnimations />
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/jordan" element={<Jordan />} />
-          <Route path="/nike" element={<Nike />} />
-          <Route path="/adidas" element={<Adidas />} />
-          <Route path="/sales" element={<Sales />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <LoadAnimations />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/jordan" element={<Jordan />} />
+        <Route path="/nike" element={<Nike />} />
+        <Route path="/adidas" element={<Adidas />} />
+        <Route path="/sales" element={<Sales />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -68,7 +68,7 @@ const LoadAnimations = () => {
       {
         targets: '.homepage-body',
         // scale: [0, 1],
-        translateX: ['100%', 0],
+        translateX: ['100%', '0%'],
         easing: 'easeOutQuint',
         duration: 900,
       },
@@ -80,7 +80,7 @@ const LoadAnimations = () => {
   }, []);
 
   return (
-    <div className="absolute z-30 landingbg bg-slate-100 w-full h-screen flex justify-center items-center overflow-y-hidden">
+    <div className="absolute z-30 landingbg bg-slate-100 w-screen h-screen flex justify-center items-center">
       <Link
         to="/"
         className="absolute z-50 headercontainer w-[70%] h-auto p-24 rounded-full"

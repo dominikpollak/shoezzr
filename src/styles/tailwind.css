@@ -21,6 +21,7 @@
 @layer components {
   body {
     overflow-x: hidden;
+    background-color: #111827;
   }
 
   .is-loading {
