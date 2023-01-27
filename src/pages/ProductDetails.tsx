@@ -10,40 +10,44 @@ export default function ProductDetails() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    let iteration = 0;
+
     const interval = setInterval(() => {
-      let iterations = 0;
       if (nameRef.current) {
-        const substrings = nameRef.current.innerText.split('');
-        const newText = substrings
-          .map((substring) => {
-            if (substring === ' ') {
-              return substring;
-            } else {
-              return substring
-                .split('')
-                .map(
-                  (letter) =>
-                    letters[Math.floor(Math.random() * letters.length)]
-                );
+        const newName = nameRef.current.innerText
+          .split('')
+          .map((letter, index) => {
+            if (letter === ' ') return letter;
+            if (index < iteration) {
+              return matchedShoe?.shoeName[index];
             }
+
+            return letters[Math.floor(Math.random() * 26)];
           })
           .join('');
-        nameRef.current.innerText = newText;
-      }
-      if (iterations >= 9) clearInterval(interval);
 
-      iterations++;
+        if (matchedShoe) {
+          if (iteration >= matchedShoe?.shoeName.length) {
+            clearInterval(interval);
+          }
+        }
+
+        nameRef.current.innerText = newName;
+      }
+      iteration += 1;
     }, 30);
+
     return () => clearInterval(interval);
-  }, []);
+  });
 
   return (
     <div className="h-screen w-screen font-main flex justify-center mt-[2rem]">
       <main className="w-[90%] h-[80%] bg-white rounded-lg">
-        <aside className="w-[50%] h-full bg-black/[0.8] float-right p-2">
+        <aside className="w-[50%] h-full bg-black/[0.9] float-right p-2">
           <h1
             ref={nameRef}
-            className="text-center rounded-tr-lg text-[2rem] uppercase text-white break-words"
+            className="text-center rounded-lg text-[2rem] uppercase text-white break-words"
           >
             {matchedShoe?.shoeName}
           </h1>
