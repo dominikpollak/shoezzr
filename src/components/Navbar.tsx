@@ -5,7 +5,7 @@ import Cart from '../assets/icons/cart-icon.svg';
 export default function Navbar() {
   return (
     <div className="w-screen">
-      <div className="navbar relative z-40 h-[10vh] w-[82%] flex justify-center items-center font-main box-border ml-[18%]">
+      <div className="navbar relative z-40 h-[10vh] w-[82%] flex justify-center items-center font-main box-border ml-[18%] pr-2">
         <div className="flex justify-between items-center w-[100%] h-[50%] mr-3">
           <section className="w-[18%] h-full flex justify-center items-center">
             <div className="w-full h-full text-black flex items-center border-[0.2rem] border-black rounded-md">

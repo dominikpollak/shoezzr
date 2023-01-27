@@ -6,6 +6,8 @@ import Jordan from './pages/Jordan';
 import Adidas from './pages/Adidas';
 import Sales from './pages/Sales';
 import Nike from './pages/Nike';
+import NoMatch from './components/NoMatch';
+import ProductDetails from './pages/ProductDetails';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path="/nike" element={<Nike />} />
         <Route path="/adidas" element={<Adidas />} />
         <Route path="/sales" element={<Sales />} />
+        <Route path="/:brand/:slug" element={<ProductDetails />} />
+        <Route path="*" element={<NoMatch />} />
       </Routes>
     </BrowserRouter>
   );
