@@ -24,10 +24,6 @@
     background-color: #111827;
   }
 
-  .colors {
-    transition-delay: color 0.5s;
-  }
-
   .is-loading {
     pointer-events: none;
     overflow: hidden;
