@@ -20,6 +20,7 @@ function App() {
         <Route path="/nike" element={<Nike />} />
         <Route path="/adidas" element={<Adidas />} />
         <Route path="/sales" element={<Sales />} />
+        {/* <Route path="/hoodies" element={<Hoodies />} /> */}
         <Route path="/:brand/:slug" element={<ProductDetails />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
