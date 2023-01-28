@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
+import ImageFocus from '../components/ImageFocus';
 import shoes from '../shoes.json';
 
 export default function ProductDetails() {
@@ -47,14 +48,16 @@ export default function ProductDetails() {
       iteration++;
     }, matchedShoe && 40 - matchedShoe.shoeName.length * 0.4);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+    };
   });
 
   return (
     <div className="h-screen w-screen font-main flex justify-center mt-[2rem] text-white ">
       <main className="w-[90%] h-[80%] bg-white rounded-lg">
-        <aside className="float-left w-[50%] h-full p-2 flex justify-center items-center">
-          <img className="w-[85%]" src={matchedShoe?.thumbnail} alt="" />
+        <aside className="float-left w-[50%] h-full p-2 flex justify-center items-center  overflow-hidden">
+          <ImageFocus image={matchedShoe?.thumbnail} />
         </aside>
         <aside className="w-[50%] h-full bg-black/[0.9] float-right p-2">
           <h1
@@ -78,7 +81,7 @@ export default function ProductDetails() {
               {colorList.map((color, index) => {
                 return (
                   <li key={index} className="">
-                    <div className="border-[1px] w-max px-1">{color}</div>
+                    <div className="border-[1px] w-max px-1 my-1">{color}</div>
                   </li>
                 );
               })}
