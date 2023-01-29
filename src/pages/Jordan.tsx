@@ -1,5 +1,4 @@
 import ItemCard from '../components/cards/ItemCard';
-import shoes from '../shoes.json';
 import sneakers from '../sneakers.json';
 
 export default function Jordan() {
@@ -17,7 +16,9 @@ export default function Jordan() {
                 key={index}
                 img={shoe.main_picture_url}
                 name={shoe.name}
-                price={shoe.retail_price_cents! / 100}
+                price={
+                  shoe.retail_price_cents ? shoe.retail_price_cents / 100 : 0
+                }
                 link={shoe.slug}
                 colors={shoe.details}
               />
