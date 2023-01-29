@@ -1,15 +1,13 @@
 import anime from 'animejs/lib/anime.es.js';
-import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-
-// interface Props {
-//   tl: anime.AnimeTimelineInstance;
-// }
+import { useEffect, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const LoadAnimations = () => {
+  const headerRef = useRef<HTMLAnchorElement>(null);
+  // const location = useLocation();
   useEffect(() => {
+    // if (location.pathname === '/') {
     const tl = anime.timeline({});
-
     tl.add({
       targets: '.headersvg path',
       strokeDashoffset: [anime.setDashoffset, 0],
@@ -77,12 +75,23 @@ const LoadAnimations = () => {
     tl.add({}, '-=1500').complete = function () {
       document.body.classList.remove('is-loading');
     };
-  }, []);
+    // } else {
+    //   document.body.classList.remove('is-loading');
+    //   anime({
+    //     targets: '.headersvg',
+    //     filter: 'invert(1)',
+    //   });
+    //   headerRef.current?.style.setProperty('transform', 'scale(0.17)');
+    //   headerRef.current?.style.setProperty('background', '#000');
+    //   headerRef.current?.style.setProperty('transform', 'translateX(-160%)');
+    // }
+  });
 
   return (
     <div className="absolute z-30 landingbg bg-slate-100 w-screen h-screen flex justify-center items-center">
       <Link
         to="/"
+        ref={headerRef}
         className="absolute z-50 headercontainer w-[70%] h-auto p-24 rounded-full"
       >
         <svg

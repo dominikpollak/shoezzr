@@ -1,24 +1,25 @@
 import ItemCard from '../components/cards/ItemCard';
 import shoes from '../shoes.json';
+import sneakers from '../sneakers.json';
 
-export default function Adidas() {
+export default function Jordan() {
   return (
     <div className="relative w-full h-auto bg-gray-900">
       <div className="w-full flex justify-center items-center text-white text-[3rem] font-main my-5 p-2">
         Adidas
       </div>
-      <div className="w-full h-auto py-12 px-24 grid grid-cols-4 gap-6">
-        {shoes
-          .filter((shoe) => shoe.brand.includes('adidas'))
+      <div className="w-full h-auto py-12 px-16 xl:px-24 grid grid-cols-3 lg:grid-cols-4 gap-6">
+        {sneakers
+          .filter((shoe) => shoe.brand_name.includes('adidas'))
           .map((shoe, index) => {
             return (
               <ItemCard
                 key={index}
-                img={shoe.thumbnail}
-                name={shoe.shoeName}
-                price={shoe.retailPrice}
-                link={shoe._id}
-                colors={shoe.colorway}
+                img={shoe.main_picture_url}
+                name={shoe.name}
+                price={shoe.retail_price_cents! / 100}
+                link={shoe.slug}
+                colors={shoe.details}
               />
             );
           })}
