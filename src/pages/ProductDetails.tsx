@@ -1,14 +1,12 @@
-import { useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import ImageFocus from '../components/ImageFocus';
+import Magnifier from 'react-glass-magnifier';
+import ShoeNameAnimation from '../components/animations/ShoeNameAnimation';
 import shoes from '../shoes.json';
 
 export default function ProductDetails() {
   const { slug } = useParams();
   const matchedShoe = shoes.find((shoe) => shoe._id === slug);
-  const nameRef = useRef<HTMLHeadingElement>(null);
   //   const [colorSelection, setColorSelection] = useState<string>('');
-  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   let releaseDate = matchedShoe?.releaseDate.split('-').reverse().join('.');
   if (releaseDate === '') releaseDate = 'unknown';
   let description = matchedShoe?.description;
@@ -17,77 +15,66 @@ export default function ProductDetails() {
       'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur dolorem blanditiis nobis molestias cum odit natus quisquam sit voluptatem a facere maiores, repudiandae libero dolorum animi laboriosam necessitatibus quam temporibus.';
   const colorArray = matchedShoe?.colorway.split('/');
   const colorList = Array.from(new Set(colorArray));
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-
-    let iteration = 0;
-
-    const interval = setInterval(() => {
-      if (nameRef.current) {
-        const newName = nameRef.current.innerText
-          .split('')
-          .map((letter, index) => {
-            if (letter === ' ') return letter;
-            if (index < iteration) {
-              return matchedShoe?.shoeName[index];
-            }
-
-            return letters[Math.floor(Math.random() * 26)];
-          })
-          .join('');
-
-        if (matchedShoe) {
-          if (iteration >= matchedShoe?.shoeName.length) {
-            clearInterval(interval);
-          }
-        }
-
-        nameRef.current.innerText = newName;
-      }
-      iteration++;
-    }, matchedShoe && 40 - matchedShoe.shoeName.length * 0.4);
-
-    return () => {
-      clearInterval(interval);
-    };
-  });
+  const sizeList = [42, 43, 44, 45.5, 46];
 
   return (
-    <div className="h-screen w-screen font-main flex justify-center mt-[2rem] text-white ">
-      <main className="w-[90%] h-[80%] bg-white rounded-lg">
-        <aside className="float-left w-[50%] h-full p-2 flex justify-center items-center  overflow-hidden">
-          <ImageFocus image={matchedShoe?.thumbnail} />
+    <div className="h-screen w-screen font-main flex justify-center mt-[2rem] text-white">
+      <main className="relative w-[90%] h-[80%] bg-white rounded-lg bg-black/[0.5]">
+        <aside className="float-left w-[50%] h-[75%] flex justify-center items-start overflow-hidden">
+          <Magnifier
+            imageUrl={matchedShoe?.thumbnail || ''}
+            imgAlt="small image"
+            zoomFactor={2}
+            glassDimension={250}
+            largeImageUrl={matchedShoe?.thumbnail || ''}
+            glassBorderColor="#ea580c"
+            glassBorderWidth={2}
+          />
         </aside>
-        <aside className="w-[50%] h-full bg-black/[0.9] float-right p-2">
-          <h1
-            ref={nameRef}
-            className="text-center rounded-lg text-[2rem] font-black uppercase text-black bg-orange-600 break-words"
-          >
-            {matchedShoe?.shoeName}
-          </h1>
+        <aside className="relative w-[50%] h-full float-right p-2">
+          {/* Matrix animation of the shoe name*/}
+          <ShoeNameAnimation shoeName={matchedShoe?.shoeName} />
           <section className="p-4">
-            <div className="text-center py-2">Released: {releaseDate}</div>
-            <h2 className="mt-4 text-black bg-white w-max px-1 mb-2 text-[1.1rem]">
+            <div className="text-center pt-2">Released: {releaseDate}</div>
+            <h2 className="mt-4 text-black bg-white w-max px-1 mb-3 text-[1.1rem]">
               Description:
             </h2>
             <article className="bg-orange-600/[0.1] p-3 border-[1px] border-orange-600">
               {description}
             </article>
+          </section>
+        </aside>
+        <section className="absolute bottom-0 left-5 h-[25%] w-[65%] flex justify-between items-center">
+          <div>
             <h2 className="mt-8 text-black bg-white w-max px-1 mb-2 text-[1.1rem]">
-              Available colors:
+              Colors variants:
             </h2>
             <ul>
               {colorList.map((color, index) => {
                 return (
-                  <li key={index} className="">
-                    <div className="border-[1px] w-max px-1 my-1">{color}</div>
+                  <li
+                    key={index}
+                    className="inline-block border-[1px] w-max px-1 m-1 [&:nth-last-child(1)]:ml-0"
+                  >
+                    {color}
                   </li>
                 );
               })}
             </ul>
-          </section>
-        </aside>
+          </div>
+          <div>
+            <h2 className="mt-8 text-black bg-white w-max px-1 ml-1 mb-2 text-[1.1rem]">
+              Sizes:
+            </h2>
+            <ul>
+              {sizeList.map((size) => (
+                <li className="inline-block border-[1px] w-max text-center p-2 m-1 [&:nth-last-child(1)]:ml-0 ">
+                  {size}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
       </main>
     </div>
   );

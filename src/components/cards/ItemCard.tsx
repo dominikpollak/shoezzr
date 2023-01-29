@@ -24,7 +24,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
       to={link}
       className="group/body relative ring-4 ring-white hover:ring-offset-4 ring-offset-black flex flex-col bg-white rounded-md font-main duration-300"
     >
-      <section className="p-4 w-auto h-[60%] overflow-hidden">
+      <section className="p-4 w-auto min-h-[200px] overflow-hidden">
         <img
           src={img}
           alt=""

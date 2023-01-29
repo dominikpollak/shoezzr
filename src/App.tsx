@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from '../src/components/Navbar';
-import LoadAnimations from './components/LoadAnimations';
+import LoadAnimations from './components/animations/LoadAnimations';
 import Home from './pages/Home';
 import Jordan from './pages/Jordan';
 import Adidas from './pages/Adidas';

@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         main: ['Righteous', 'cursive'],
+        heading: ['B612 Mono', 'monospace'],
       },
     },
   },
