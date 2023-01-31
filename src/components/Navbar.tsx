@@ -7,7 +7,7 @@ export default function Navbar() {
     <div className="w-screen">
       <div className="navbar relative z-40 h-[10vh] w-[85%] lg:w-[82%] flex justify-center items-center font-main box-border ml-[15%] lg:ml-[18%] pr-2">
         <div className="flex justify-between items-center w-full h-[50%] mr-3">
-          <section className="w-[18%] h-full flex justify-center items-center">
+          <section className="w-[35%] lg:w-[18%] h-full flex justify-center items-center">
             <input
               className="pl-2 w-full h-full text-black focus:bg-black focus:outline-white border-[0.2rem] border-black flex items-center rounded-md focus:text-white duration-150"
               type="text"
@@ -17,12 +17,12 @@ export default function Navbar() {
           <section className="">
             <NavLink
               to="/news"
-              className="w-auto h-[60%] text-white flex justify-center items-center text-[1rem] lg:text-xl ring-2 ring-inset bg-orange-600 hover:bg-orange-700 hover:ring-[3px] ring-black duration-200 py-2 px-6 rounded-full"
+              className="w-auto h-[60%] text-white flex justify-center items-center text-[1.1rem] lg:text-xl ring-2 ring-inset bg-orange-600 hover:bg-orange-700 hover:ring-[3px] ring-black duration-200 py-2 px-6 rounded-full"
             >
               News
             </NavLink>
           </section>
-          <section className="w-[50%] xl:w-[45%] h-full md:flex justify-around items-center hidden text-[1.1rem] lg:text-xl">
+          <section className="w-[52%] xl:w-[45%] h-full lg:flex justify-around items-center hidden text-[1.1rem] lg:text-xl">
             <NavLink
               to="/jordan"
               className="nav-link w-auto h-[60%] text-black inline-block justify-center items-center after:block after:my-0 after:mx-auto after:border-b-4 after:border-black after:w-[5px] after:rounded-full hover:after:w-full after:duration-300"

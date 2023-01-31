@@ -106,8 +106,8 @@ const LoadAnimations = () => {
         ref={headerRef}
         className={
           location.pathname === '/'
-            ? 'absolute z-50 headercontainer w-[70%] h-auto p-24 rounded-full'
-            : 'absolute z-50 headercontainer w-[70%] h-auto p-24 rounded-full bg-black scale-[0.17] -translate-x-[62%]'
+            ? 'absolute z-50 headercontainer w-[70%] h-auto p-16 lg:p-24 rounded-full'
+            : 'absolute z-50 headercontainer w-[70%] h-auto p-16 lg:p-24 rounded-full bg-black scale-[0.17] -translate-x-[62%]'
         }
       >
         <svg

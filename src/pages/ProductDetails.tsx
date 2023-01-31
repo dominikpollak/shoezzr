@@ -21,7 +21,7 @@ export default function ProductDetails() {
 
   return (
     <div className="h-screen w-screen font-main flex justify-center mt-[2rem] text-white">
-      <main className="relative w-[90%] 2xl:w-[80%] h-[80%] 2xl:h-[75%] bg-white rounded-lg bg-black/[0.5]">
+      <main className="relative w-[90%] 2xl:w-[80%] h-full lg:h-[90%] xl:h-[80%] 2xl:h-[75%] bg-white rounded-lg bg-black/[0.5]">
         <aside className="float-left w-[48%] h-[75%] flex justify-start items-center overflow-hidden bg-slate-50 rounded-md">
           <ImageZoom image={matchedShoe?.main_picture_url || ''} />
         </aside>
@@ -29,7 +29,7 @@ export default function ProductDetails() {
           {/* Matrix animation of the shoe name*/}
           <ShoeNameAnimation shoeName={matchedShoe?.name} />
           <section className="p-4">
-            <div className="text-center pt-4 flex justify-around w-[65%] 2xl:w-[70%] float-right text-[1.1rem] 2xl:text-[1.2rem]">
+            <div className="text-center pt-4 flex justify-around w-full lg:w-[85%] xl:w-[65%] 2xl:w-[70%] float-right text-[1rem] xl:text-[1.1rem] 2xl:text-[1.2rem]">
               <p className="flex items-center">
                 Released: {matchedShoe?.release_year || 'Unknown'}
               </p>
@@ -38,24 +38,30 @@ export default function ProductDetails() {
               </p>
             </div>
           </section>
-          <section className="p-4">
-            <h2 className="mt-4 2xl:mt-16 text-black bg-white w-max px-1 mb-3 text-[1.1rem] 2xl:text-[1.2rem]">
+          <section className="py-4 pr-4">
+            <h2 className="mt-10 lg:mt-12 text-black bg-white w-max px-1 mb-3 text-[1.1rem] 2xl:text-[1.2rem]">
               Description:
             </h2>
             <article
               ref={descriptionRef}
               className="bg-orange-600/[0.1] p-3 border-[1px] border-orange-600"
             />
-            <p className="float-right p-3 text-[2rem]">
-              $
-              {matchedShoe?.retail_price_cents
-                ? matchedShoe.retail_price_cents / 100
-                : 0}
-            </p>
+            <div className="flex justify-between w-full">
+              <div className="p-3 flex flex-col">
+                <p>Size: {shoeSize}</p>
+                <p>Color: {shoeColor}</p>
+              </div>
+              <p className="p-3 text-[2rem]">
+                $
+                {matchedShoe?.retail_price_cents
+                  ? matchedShoe.retail_price_cents / 100
+                  : 0}
+              </p>
+            </div>
           </section>
         </aside>
-        <section className="absolute bottom-0 left-5 h-[25%] w-[60%] flex justify-between items-center">
-          <div className="w-[35%]">
+        <section className="absolute bottom-0 left-5 h-[25%] w-[70%] xl:w-[60%] 2xl:w-[50%] flex flex-col lg:flex-row justify-between items-start lg:items-center">
+          <div className="w-[50%] xl:w-[35%]">
             <h2 className="mt-8 ml-1 text-black bg-white w-max px-1 mb-2 text-[1.1rem]">
               Colors variants:
             </h2>
