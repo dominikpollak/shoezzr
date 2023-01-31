@@ -46,7 +46,7 @@ const ShoeNameAnimation: React.FC<ShoeNameAnimationProps> = ({ shoeName }) => {
   return (
     <h1
       ref={nameRef}
-      className="rounded-lg text-center text-[2rem] box-border font-mono w-full break-words p-2 font-black uppercase text-black bg-orange-600"
+      className="rounded-lg text-center text-[2rem] 2xl:text-[2.2rem] box-border font-mono w-full break-words p-2 font-black uppercase text-black bg-orange-600"
     >
       {shoeName}
     </h1>

@@ -5,6 +5,6 @@ interface ImageZoomProps {
 }
 
 const ImageZoom: React.FC<ImageZoomProps> = ({ image }) => {
-  return <img src={image} alt="" />;
+  return <img className="" src={image} alt="" />;
 };
 export default ImageZoom;

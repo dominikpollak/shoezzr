@@ -7,9 +7,14 @@ const LoadAnimations = () => {
     useState(false);
   const headerRef = useRef<HTMLAnchorElement>(null);
   const location = useLocation();
+
+  const beforeunload = () => {
+    setHomepageAnimationHasLoaded(false);
+  };
+
   useEffect(() => {
     if (location.pathname === '/' && !homepageAnimationHasLoaded) {
-      setHomepageAnimationHasLoaded(true);
+      document.body.classList.add('is-loading');
       const tl = anime.timeline({});
       tl.add({
         targets: '.headersvg path',
@@ -68,7 +73,6 @@ const LoadAnimations = () => {
       tl.add(
         {
           targets: '.homepage-body',
-          // scale: [0, 1],
           translateX: ['100%', '0%'],
           easing: 'easeOutQuint',
           duration: 900,
@@ -78,30 +82,21 @@ const LoadAnimations = () => {
       tl.add({}, '-=1500').complete = function () {
         document.body.classList.remove('is-loading');
       };
-      console.log('yes');
+      setHomepageAnimationHasLoaded(true);
     } else {
       document.body.classList.remove('is-loading');
     }
 
-    window.addEventListener('beforeunload', () =>
-      setHomepageAnimationHasLoaded(false)
-    );
+    window.addEventListener('beforeunload', beforeunload);
     return () => {
-      window.removeEventListener('beforeunload', () =>
-        setHomepageAnimationHasLoaded(false)
-      );
+      window.removeEventListener('beforeunload', beforeunload);
     };
-  }, [
-    location.pathname,
-    homepageAnimationHasLoaded,
-    setHomepageAnimationHasLoaded,
-  ]);
+  }, [location.pathname]);
 
   return (
     <div
       className={
-        location.pathname === '/' &&
-        sessionStorage.getItem('homepageVisited') !== 'yes'
+        location.pathname === '/'
           ? 'absolute z-30 landingbg bg-slate-100 w-screen h-screen flex justify-center items-center'
           : 'absolute z-30 landingbg bg-slate-100 w-screen h-[10vh] flex justify-center items-center'
       }
@@ -110,16 +105,14 @@ const LoadAnimations = () => {
         to="/"
         ref={headerRef}
         className={
-          location.pathname === '/' &&
-          sessionStorage.getItem('homepageVisited') !== 'yes'
+          location.pathname === '/'
             ? 'absolute z-50 headercontainer w-[70%] h-auto p-24 rounded-full'
             : 'absolute z-50 headercontainer w-[70%] h-auto p-24 rounded-full bg-black scale-[0.17] -translate-x-[62%]'
         }
       >
         <svg
           className={
-            location.pathname === '/' &&
-            sessionStorage.getItem('homepageVisited') !== 'yes'
+            location.pathname === '/'
               ? 'headersvg w-full h-full'
               : 'headersvg w-full h-full invert'
           }
