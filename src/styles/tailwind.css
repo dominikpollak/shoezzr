@@ -20,6 +20,9 @@
 /* @import header font; */
 
 @layer components {
+  html {
+    scrollbar-color: #ea580c transparent;
+  }
   body {
     overflow-x: hidden;
     background-color: #111827;

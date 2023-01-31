@@ -16,6 +16,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
   link,
   colors,
 }) => {
+  const colorList = Array.from(new Set(colors.split('/')));
   return (
     <Link
       to={link}
@@ -40,11 +41,19 @@ const ItemCard: React.FC<ItemCardProps> = ({
         </section>
         <section className="group/colors absolute text-[1.1rem] bottom-1 right-4 bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 via-blue-500 to-red-500 hover:from-yellow-400 hover:via-blue-400 hover:to-red-400 duration-200">
           Show colors
-          <div className="colors absolute right-0 z-[70] opacity-0 whitespace-pre group-hover/colors:whitespace-pre-line group-hover/colors:w-[250px] group-hover/colors:opacity-100 text-white w-0 bg-black/[0.7] border-2 border-orange-600 p-2 origin-right duration-300">
-            {colors.split('/').map((color) => (
-              <div className="w-auto p-1 border-b-[1px] text-transparent group-hover/colors:text-white delay-100 border-orange-600/[0.7] [&:nth-last-child(1)]:border-b-0 [&:nth-last-child(1)]:pb-0">
-                {color}
-              </div>
+          <div
+            className="absolute flex flex-col justify-around right-0 z-[70] opacity-0 group-hover/colors:w-[250px] group-hover/colors:opacity-100 text-white w-0 bg-black/[0.7] border-2 border-orange-600 p-2 origin-right duration-300 overflow-y-hidden"
+            style={{ height: `${3.7 * colorList.length}rem` }}
+          >
+            {colorList.map((color, index) => (
+              <>
+                <div className="w-auto p-1 text-transparent capitalize group-hover/colors:delay-300 group-hover/colors:text-white [&:nth-last-child(1)]:pb-0">
+                  {color}
+                </div>
+                {index !== colors.length - 1 && (
+                  <div className="h-[1px] bg-orange-600/[0.7] w-full [&:nth-last-child(1)]:hidden" />
+                )}
+              </>
             ))}
           </div>
         </section>

@@ -1,101 +1,128 @@
 import anime from 'animejs/lib/anime.es.js';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const LoadAnimations = () => {
+  const [homepageAnimationHasLoaded, setHomepageAnimationHasLoaded] =
+    useState(false);
   const headerRef = useRef<HTMLAnchorElement>(null);
-  // const location = useLocation();
+  const location = useLocation();
   useEffect(() => {
-    // if (location.pathname === '/') {
-    const tl = anime.timeline({});
-    tl.add({
-      targets: '.headersvg path',
-      strokeDashoffset: [anime.setDashoffset, 0],
-      easing: 'easeInQuad',
-      duration: 1400,
-      delay: function (el, i) {
-        return i * 100;
-      },
-    });
-    tl.add(
-      {
-        targets: '.headersvg',
-        filter: 'invert(1)',
+    if (location.pathname === '/' && !homepageAnimationHasLoaded) {
+      setHomepageAnimationHasLoaded(true);
+      const tl = anime.timeline({});
+      tl.add({
+        targets: '.headersvg path',
+        strokeDashoffset: [anime.setDashoffset, 0],
         easing: 'easeInQuad',
-        duration: 500,
-      },
-      2500
-    );
-    tl.add(
-      {
-        targets: '.headercontainer',
-        background: '#000',
-        duration: 550,
-        easing: 'easeInQuad',
-      },
-      2500
-    );
-    tl.add({
-      targets: '.landingbg',
-      height: '10vh',
-      duration: 650,
-      easing: 'easeInQuad',
-    });
-    tl.add(
-      {
-        targets: '.headercontainer',
-        scale: 0.17,
+        duration: 1400,
+        delay: function (el, i) {
+          return i * 100;
+        },
+      });
+      tl.add(
+        {
+          targets: '.headersvg',
+          filter: 'invert(1)',
+          easing: 'easeInQuad',
+          duration: 500,
+        },
+        2500
+      );
+      tl.add(
+        {
+          targets: '.headercontainer',
+          background: '#000',
+          duration: 550,
+          easing: 'easeInQuad',
+        },
+        2500
+      );
+      tl.add({
+        targets: '.landingbg',
+        height: '10vh',
         duration: 650,
-        easing: 'linear',
-      },
-      '-=700'
-    );
-    tl.add({
-      targets: '.headercontainer',
-      translateX: '-360%',
-    });
-    tl.add(
-      {
-        targets: '.navbar',
-        translateX: ['100%', 0],
-        easing: 'easeOutQuint',
-      },
-      '-=950'
-    );
-    tl.add(
-      {
-        targets: '.homepage-body',
-        // scale: [0, 1],
-        translateX: ['100%', '0%'],
-        easing: 'easeOutQuint',
-        duration: 900,
-      },
-      '-=1050'
-    );
-    tl.add({}, '-=1500').complete = function () {
+        easing: 'easeInQuad',
+      });
+      tl.add(
+        {
+          targets: '.headercontainer',
+          scale: 0.17,
+          duration: 650,
+          easing: 'linear',
+        },
+        '-=700'
+      );
+      tl.add({
+        targets: '.headercontainer',
+        translateX: '-360%',
+      });
+      tl.add(
+        {
+          targets: '.navbar',
+          translateX: ['100%', 0],
+          easing: 'easeOutQuint',
+        },
+        '-=950'
+      );
+      tl.add(
+        {
+          targets: '.homepage-body',
+          // scale: [0, 1],
+          translateX: ['100%', '0%'],
+          easing: 'easeOutQuint',
+          duration: 900,
+        },
+        '-=1050'
+      );
+      tl.add({}, '-=1500').complete = function () {
+        document.body.classList.remove('is-loading');
+      };
+      console.log('yes');
+    } else {
       document.body.classList.remove('is-loading');
+    }
+
+    window.addEventListener('beforeunload', () =>
+      setHomepageAnimationHasLoaded(false)
+    );
+    return () => {
+      window.removeEventListener('beforeunload', () =>
+        setHomepageAnimationHasLoaded(false)
+      );
     };
-    // } else {
-    //   document.body.classList.remove('is-loading');
-    //   anime({
-    //     targets: '.headersvg',
-    //     filter: 'invert(1)',
-    //   });
-    //   headerRef.current?.style.setProperty('transform', 'scale(0.17)');
-    //   headerRef.current?.style.setProperty('background', '#000');
-    //   headerRef.current?.style.setProperty('transform', 'translateX(-160%)');
-    // }
-  });
+  }, [
+    location.pathname,
+    homepageAnimationHasLoaded,
+    setHomepageAnimationHasLoaded,
+  ]);
 
   return (
-    <div className="absolute z-30 landingbg bg-slate-100 w-screen h-screen flex justify-center items-center">
+    <div
+      className={
+        location.pathname === '/' &&
+        sessionStorage.getItem('homepageVisited') !== 'yes'
+          ? 'absolute z-30 landingbg bg-slate-100 w-screen h-screen flex justify-center items-center'
+          : 'absolute z-30 landingbg bg-slate-100 w-screen h-[10vh] flex justify-center items-center'
+      }
+    >
       <Link
         to="/"
         ref={headerRef}
-        className="absolute z-50 headercontainer w-[70%] h-auto p-24 rounded-full"
+        className={
+          location.pathname === '/' &&
+          sessionStorage.getItem('homepageVisited') !== 'yes'
+            ? 'absolute z-50 headercontainer w-[70%] h-auto p-24 rounded-full'
+            : 'absolute z-50 headercontainer w-[70%] h-auto p-24 rounded-full bg-black scale-[0.17] -translate-x-[62%]'
+        }
       >
         <svg
-          className="headersvg w-full h-full"
+          className={
+            location.pathname === '/' &&
+            sessionStorage.getItem('homepageVisited') !== 'yes'
+              ? 'headersvg w-full h-full'
+              : 'headersvg w-full h-full invert'
+          }
           width="564"
           height="132"
           viewBox="0 0 564 132"
