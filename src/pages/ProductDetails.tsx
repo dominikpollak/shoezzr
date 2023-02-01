@@ -20,16 +20,16 @@ export default function ProductDetails() {
   }, [descriptionRef, matchedShoe?.story_html]);
 
   return (
-    <div className="h-screen w-screen font-main flex justify-center mt-[2rem] text-white">
-      <main className="relative w-[90%] 2xl:w-[80%] h-full lg:h-[90%] xl:h-[80%] 2xl:h-[75%] bg-white rounded-lg bg-black/[0.5]">
-        <aside className="float-left w-[48%] h-[75%] flex justify-start items-center overflow-hidden bg-slate-50 rounded-md">
+    <div className="mt-[2rem] flex h-screen w-screen justify-center font-main text-white">
+      <main className="relative h-[95%] w-[95%] rounded-lg bg-white bg-black/[0.5] lg:h-[85%] lg:w-[90%] xl:h-[80%] 2xl:h-[75%] 2xl:w-[80%]">
+        <aside className="float-left flex h-auto w-[49%] items-center justify-start overflow-hidden rounded-md bg-slate-50 lg:h-[60%] xl:h-[75%]">
           <ImageZoom image={matchedShoe?.main_picture_url || ''} />
         </aside>
-        <aside className="relative w-[50%] h-full float-right p-2">
+        <aside className="relative float-right h-full w-[50%] p-2">
           {/* Matrix animation of the shoe name*/}
           <ShoeNameAnimation shoeName={matchedShoe?.name} />
           <section className="p-4">
-            <div className="text-center pt-4 flex justify-around w-full lg:w-[85%] xl:w-[65%] 2xl:w-[70%] float-right text-[1rem] xl:text-[1.1rem] 2xl:text-[1.2rem]">
+            <div className="float-right flex w-full justify-around pt-4 text-center text-[1rem] lg:w-[85%] xl:w-[65%] xl:text-[1.1rem] 2xl:w-[70%] 2xl:text-[1.2rem]">
               <p className="flex items-center">
                 Released: {matchedShoe?.release_year || 'Unknown'}
               </p>
@@ -39,15 +39,15 @@ export default function ProductDetails() {
             </div>
           </section>
           <section className="py-4 pr-4">
-            <h2 className="mt-10 lg:mt-12 text-black bg-white w-max px-1 mb-3 text-[1.1rem] 2xl:text-[1.2rem]">
+            <h2 className="mt-10 mb-3 w-max bg-white px-1 text-[1.1rem] text-black lg:mt-12 2xl:text-[1.2rem]">
               Description:
             </h2>
             <article
               ref={descriptionRef}
-              className="bg-orange-600/[0.1] p-3 border-[1px] border-orange-600"
+              className="border-[1px] border-orange-600 bg-orange-600/[0.1] p-3 text-[0.95rem] lg:text-base"
             />
-            <div className="flex justify-between w-full">
-              <div className="p-3 flex flex-col">
+            <div className="mt-2 flex w-full justify-between">
+              <div className="flex flex-col py-3">
                 <p>Size: {shoeSize}</p>
                 <p>Color: {shoeColor}</p>
               </div>
@@ -60,9 +60,9 @@ export default function ProductDetails() {
             </div>
           </section>
         </aside>
-        <section className="absolute bottom-0 left-5 h-[25%] w-[70%] xl:w-[60%] 2xl:w-[50%] flex flex-col lg:flex-row justify-between items-start lg:items-center">
+        <section className="absolute bottom-[2rem] left-5 flex h-[40%] w-[40%] flex-col items-start justify-between md:h-[35%] md:w-[45%] xl:bottom-0 xl:h-[23%] xl:w-[60%] xl:flex-row xl:items-center 2xl:w-[50%]">
           <div className="w-[50%] xl:w-[35%]">
-            <h2 className="mt-8 ml-1 text-black bg-white w-max px-1 mb-2 text-[1.1rem]">
+            <h2 className="mt-8 ml-1 mb-2 w-max bg-white px-1 text-[1.1rem] text-black">
               Colors variants:
             </h2>
             <ul>
@@ -72,8 +72,8 @@ export default function ProductDetails() {
                     key={index}
                     className={
                       shoeColor === color
-                        ? 'inline-block border-[1px] w-max px-1 m-1 bg-orange-600 cursor-pointer'
-                        : 'inline-block border-[1px] w-max px-1 m-1 cursor-pointer'
+                        ? 'm-1 inline-block w-max cursor-pointer border-[1px] bg-orange-600 px-1'
+                        : 'm-1 inline-block w-max cursor-pointer border-[1px] px-1'
                     }
                     onClick={(e) => setShoeColor(color)}
                   >
@@ -84,7 +84,7 @@ export default function ProductDetails() {
             </ul>
           </div>
           <div className="">
-            <h2 className="mt-8 text-black bg-white w-max mb-2 px-1 text-[1.1rem]">
+            <h2 className="mt-8 mb-2 w-max bg-white px-1 text-[1.1rem] text-black">
               Sizes:
             </h2>
 
@@ -94,8 +94,8 @@ export default function ProductDetails() {
                   key={size}
                   className={
                     shoeSize === size
-                      ? 'inline-block border-[1px] w-[2.8rem] text-center p-2 bg-orange-600 [&:nth-last-child(1)]:ml-0 cursor-pointer'
-                      : 'inline-block border-[1px] w-[2.8rem] text-center p-2 [&:nth-last-child(1)]:ml-0 cursor-pointer'
+                      ? 'inline-block w-[2.8rem] cursor-pointer border-[1px] bg-orange-600 p-2 text-center [&:nth-last-child(1)]:ml-0'
+                      : 'inline-block w-[2.8rem] cursor-pointer border-[1px] p-2 text-center [&:nth-last-child(1)]:ml-0'
                   }
                   onClick={(e) => setShoeSize(size)}
                 >
@@ -107,10 +107,10 @@ export default function ProductDetails() {
         </section>
         <section className="absolute right-5 bottom-5 flex-col ">
           <div className="flex text-[1.2rem] ">
-            <button className="bg-orange-600 text-black p-4 rounded-sm mr-3 hover:bg-orange-500">
+            <button className="mr-3 rounded-sm bg-orange-600 p-4 text-black hover:bg-orange-500">
               Add to cart
             </button>
-            <button className="bg-orange-600 text-black p-4 rounded-sm hover:bg-orange-500">
+            <button className="rounded-sm bg-orange-600 p-4 text-black hover:bg-orange-500">
               Favorite
             </button>
           </div>

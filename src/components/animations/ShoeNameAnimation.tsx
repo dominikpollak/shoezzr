@@ -36,17 +36,17 @@ const ShoeNameAnimation: React.FC<ShoeNameAnimationProps> = ({ shoeName }) => {
         nameRef.current.innerHTML = newName;
       }
       iteration++;
-    }, 40 - shoeName?.length * 0.4);
+    }, 40 - shoeName?.length * 0.5);
 
     return () => {
       clearInterval(interval);
     };
-  });
+  }, []);
 
   return (
     <h1
       ref={nameRef}
-      className="rounded-lg text-center text-[1.5rem] lg:text-[1.8rem] xl:text-[2rem] 2xl:text-[2.2rem] box-border font-mono w-full break-words p-2 font-black uppercase text-black bg-orange-600"
+      className="box-border w-full break-words rounded-lg bg-orange-600 p-2 text-center font-mono text-[1.5rem] font-black uppercase text-black lg:text-[1.8rem] xl:text-[2rem] 2xl:text-[2.2rem]"
     >
       {shoeName}
     </h1>

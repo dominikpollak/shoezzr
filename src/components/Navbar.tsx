@@ -1,15 +1,20 @@
+import { Burger, Menu } from '@mantine/core';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Account from '../assets/icons/account-icon.svg';
 import Cart from '../assets/icons/cart-icon.svg';
 
 export default function Navbar() {
+  const [openedMenu, setOpenedMenu] = useState(false);
+  const title = openedMenu ? 'Close menu' : 'Open menu';
+
   return (
     <div className="w-screen">
-      <div className="navbar relative z-40 h-[10vh] w-[85%] lg:w-[82%] flex justify-center items-center font-main box-border ml-[15%] lg:ml-[18%] pr-2">
-        <div className="flex justify-between items-center w-full h-[50%] mr-3">
-          <section className="w-[35%] lg:w-[18%] h-full flex justify-center items-center">
+      <div className="navbar relative z-40 ml-[20%] box-border flex h-[10vh] w-[80%] items-center justify-center pr-2 font-main lg:ml-[18%] lg:w-[82%]">
+        <div className="mr-3 flex h-[50%] w-full items-center justify-between">
+          <section className="flex h-full w-[35%] items-center justify-center lg:w-[18%]">
             <input
-              className="pl-2 w-full h-full text-black focus:bg-black focus:outline-white border-[0.2rem] border-black flex items-center rounded-md focus:text-white duration-150"
+              className="flex h-full w-full items-center rounded-md border-[0.2rem] border-black pl-2 text-black duration-150 focus:bg-black focus:text-white focus:outline-white"
               type="text"
               placeholder="Search..."
             />
@@ -17,61 +22,88 @@ export default function Navbar() {
           <section className="">
             <NavLink
               to="/news"
-              className="w-auto h-[60%] text-white flex justify-center items-center text-[1.1rem] lg:text-xl ring-2 ring-inset bg-orange-600 hover:bg-orange-700 hover:ring-[3px] ring-black duration-200 py-2 px-6 rounded-full"
+              className="flex h-[60%] w-auto items-center justify-center rounded-full bg-orange-600 py-2 px-6 text-[1.1rem] text-white ring-2 ring-inset ring-black duration-200 hover:bg-orange-700 hover:ring-[3px] lg:text-xl"
             >
               News
             </NavLink>
           </section>
-          <section className="w-[52%] xl:w-[45%] h-full lg:flex justify-around items-center hidden text-[1.1rem] lg:text-xl">
+          <section className="inline-block lg:hidden">
+            <Menu shadow="md" width={200} offset={30} transition={'slide-left'}>
+              <Menu.Target>
+                <Burger
+                  opened={openedMenu}
+                  onClick={() => setOpenedMenu((o) => !o)}
+                  title={title}
+                  size={30}
+                />
+              </Menu.Target>
+              <Menu.Dropdown>
+                <Menu.Item color="#ea580c">
+                  <NavLink to="/jordan">Air Jordan</NavLink>
+                </Menu.Item>
+                <Menu.Divider />
+                <Menu.Item>
+                  <NavLink to="/nike">Nike</NavLink>
+                </Menu.Item>
+                <Menu.Divider />
+                <Menu.Item>Adidas</Menu.Item>
+                <Menu.Divider />
+                <Menu.Item>Accessories</Menu.Item>
+                <Menu.Divider />
+                <Menu.Item>Sales</Menu.Item>
+              </Menu.Dropdown>
+            </Menu>
+          </section>
+          <section className="hidden h-full w-[52%] items-center justify-around text-[1.1rem] lg:flex xl:w-[45%] xl:text-xl">
             <NavLink
               to="/jordan"
-              className="nav-link w-auto h-[60%] text-black inline-block justify-center items-center after:block after:my-0 after:mx-auto after:border-b-4 after:border-black after:w-[5px] after:rounded-full hover:after:w-full after:duration-300"
+              className="nav-link inline-block h-[60%] w-auto items-center justify-center text-black after:my-0 after:mx-auto after:block after:w-[5px] after:rounded-full after:border-b-4 after:border-black after:duration-300 hover:after:w-full"
             >
               Jordan
             </NavLink>
             <NavLink
               to="/nike"
-              className="nav-link w-auto h-[60%] text-black inline-block justify-center items-center after:block after:my-0 after:mx-auto after:border-b-4 after:border-black after:w-[5px] after:rounded-full hover:after:w-full after:duration-300"
+              className="nav-link inline-block h-[60%] w-auto items-center justify-center text-black after:my-0 after:mx-auto after:block after:w-[5px] after:rounded-full after:border-b-4 after:border-black after:duration-300 hover:after:w-full"
             >
               Nike
             </NavLink>
             <NavLink
               to="/adidas"
-              className="nav-link w-auto h-[60%] text-black inline-block justify-center items-center after:block after:my-0 after:mx-auto after:border-b-4 after:border-black after:w-[5px] after:rounded-full hover:after:w-full after:duration-300"
+              className="nav-link inline-block h-[60%] w-auto items-center justify-center text-black after:my-0 after:mx-auto after:block after:w-[5px] after:rounded-full after:border-b-4 after:border-black after:duration-300 hover:after:w-full"
             >
               Adidas
             </NavLink>
             <NavLink
               to="accessories"
-              className="nav-link w-auto h-[60%] text-black inline-block justify-center items-center after:block after:my-0 after:mx-auto after:border-b-4 after:border-black after:w-[5px] after:rounded-full hover:after:w-full after:duration-300"
+              className="nav-link inline-block h-[60%] w-auto items-center justify-center text-black after:my-0 after:mx-auto after:block after:w-[5px] after:rounded-full after:border-b-4 after:border-black after:duration-300 hover:after:w-full"
             >
               Accessories
             </NavLink>
             <NavLink
               to="/sales"
-              className="nav-link w-auto h-[60%] text-black inline-block justify-center items-center after:block after:my-0 after:mx-auto after:border-b-4 after:border-black after:w-[5px] after:rounded-full hover:after:w-full after:duration-300"
+              className="nav-link inline-block h-[60%] w-auto items-center justify-center text-black after:my-0 after:mx-auto after:block after:w-[5px] after:rounded-full after:border-b-4 after:border-black after:duration-300 hover:after:w-full"
             >
               Sales
             </NavLink>
           </section>
-          <section className="flex justify-around items-center w-[10%]">
+          <section className="flex w-[15%] items-center justify-around lg:w-[10%]">
             <NavLink
               to="/cart"
-              className="relative text-black flex justify-center items-center text-xl"
+              className="relative flex items-center justify-center text-xl text-black"
             >
               <img className="w-[90%]" src={Cart} alt="cart icon" />
-              <div className="absolute z-[60] h-[10%] w-auto rounded-full bg-orange-600 bottom-0 right-0"></div>
+              <div className="absolute bottom-0 right-0 z-[60] h-[10%] w-auto rounded-full bg-orange-600"></div>
             </NavLink>
             <NavLink
               to="/account"
-              className="text-black flex justify-center items-center text-xl"
+              className="flex items-center justify-center text-xl text-black"
             >
               <img className="w-[90%]" src={Account} alt="account icon" />
             </NavLink>
           </section>
         </div>
       </div>
-      <div className="navbar absolute z-50 bg-orange-600 w-screen top-[10vh] h-[1%]" />
+      <div className="navbar absolute top-[10vh] z-50 h-[1%] w-screen bg-orange-600" />
     </div>
   );
 }

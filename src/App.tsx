@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from '../src/components/Navbar';
 import LoadAnimations from './components/animations/LoadAnimations';
+import NoMatch from './components/NoMatch';
+import Adidas from './pages/Adidas';
 import Home from './pages/Home';
 import Jordan from './pages/Jordan';
-import Adidas from './pages/Adidas';
-import Sales from './pages/Sales';
 import Nike from './pages/Nike';
-import NoMatch from './components/NoMatch';
 import ProductDetails from './pages/ProductDetails';
+import Sales from './pages/Sales';
 
 function App() {
   return (

@@ -97,8 +97,8 @@ const LoadAnimations = () => {
     <div
       className={
         location.pathname === '/'
-          ? 'absolute z-30 landingbg bg-slate-100 w-screen h-screen flex justify-center items-center'
-          : 'absolute z-30 landingbg bg-slate-100 w-screen h-[10vh] flex justify-center items-center'
+          ? 'landingbg absolute z-30 flex h-screen w-screen items-center justify-center bg-slate-100'
+          : 'landingbg absolute z-30 flex h-[10vh] w-screen items-center justify-center bg-slate-100'
       }
     >
       <Link
@@ -106,15 +106,15 @@ const LoadAnimations = () => {
         ref={headerRef}
         className={
           location.pathname === '/'
-            ? 'absolute z-50 headercontainer w-[70%] h-auto p-16 lg:p-24 rounded-full'
-            : 'absolute z-50 headercontainer w-[70%] h-auto p-16 lg:p-24 rounded-full bg-black scale-[0.17] -translate-x-[62%]'
+            ? 'headercontainer absolute z-50 h-auto w-[70%] rounded-full p-16 lg:p-24'
+            : 'headercontainer absolute z-50 h-auto w-[70%] -translate-x-[60%] scale-[0.22] rounded-full bg-black p-16 lg:-translate-x-[62%] lg:scale-[0.17] lg:p-24'
         }
       >
         <svg
           className={
             location.pathname === '/'
-              ? 'headersvg w-full h-full'
-              : 'headersvg w-full h-full invert'
+              ? 'headersvg h-full w-full'
+              : 'headersvg h-full w-full invert'
           }
           width="564"
           height="132"

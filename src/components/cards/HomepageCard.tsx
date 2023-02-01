@@ -17,17 +17,17 @@ const HomepageCard: React.FC<HomepageCardProps> = ({
   return (
     <Link
       to={link}
-      className="group ring-4 ring-white hover:ring-offset-4 ring-offset-black relative xl:w-[400px] 2xl:w-[500px] h-full rounded-2xl shadow-md duration-300 overflow-hidden"
+      className="group relative h-full overflow-hidden rounded-2xl shadow-md ring-4 ring-white ring-offset-black duration-300 hover:ring-offset-4 xl:w-[400px] 2xl:w-[500px]"
     >
       <div className="h-[85%] w-full">
         <img
           src={image}
           alt={altTitle}
           draggable={false}
-          className="w-full h-full object-cover object-center rounded-t-2xl duration-500 group-hover:scale-110 group-hover:brightness-[80%]"
+          className="h-full w-full rounded-t-2xl object-cover object-center duration-500 group-hover:scale-110 group-hover:brightness-[80%]"
         />
       </div>
-      <div className="absolute h-[15%] w-full flex justify-center items-center text-xl bg-white font-main tracking-wider rounded-b-2xl border-t-[0.5rem] border-orange-600 duration-500 group-hover:tracking-[0.4rem] group-hover:bg-black group-hover:text-white">
+      <div className="absolute flex h-[15%] w-full items-center justify-center rounded-b-2xl border-t-[0.5rem] border-orange-600 bg-white font-main text-xl tracking-wider duration-500 group-hover:bg-black group-hover:tracking-[0.4rem] group-hover:text-white">
         {title}
       </div>
     </Link>
