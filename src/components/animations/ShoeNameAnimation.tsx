@@ -9,8 +9,6 @@ const ShoeNameAnimation: React.FC<ShoeNameAnimationProps> = ({ shoeName }) => {
   const nameRef = useRef<HTMLHeadingElement>(null);
   useEffect(() => {
     window.scrollTo(0, 0);
-    const height = nameRef.current?.offsetHeight;
-    nameRef.current?.style.setProperty('--height', `${height}px`);
     let iteration = 0;
 
     if (!shoeName || !nameRef.current) return;

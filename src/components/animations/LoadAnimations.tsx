@@ -5,9 +5,8 @@ import { Link, useLocation } from 'react-router-dom';
 const LoadAnimations = () => {
   const [homepageAnimationHasLoaded, setHomepageAnimationHasLoaded] =
     useState(false);
-  const headerRef = useRef<HTMLAnchorElement>(null);
   const location = useLocation();
-
+  const headerRef = useRef<HTMLAnchorElement>(null);
   const beforeunload = () => {
     setHomepageAnimationHasLoaded(false);
   };
@@ -52,7 +51,7 @@ const LoadAnimations = () => {
       tl.add(
         {
           targets: '.headercontainer',
-          scale: 0.17,
+          scale: document.body.clientWidth > 1024 ? 0.17 : 0.22,
           duration: 650,
           easing: 'linear',
         },
@@ -60,7 +59,7 @@ const LoadAnimations = () => {
       );
       tl.add({
         targets: '.headercontainer',
-        translateX: '-360%',
+        translateX: document.body.clientWidth > 1022 ? '-360%' : '-270%',
       });
       tl.add(
         {
@@ -85,6 +84,9 @@ const LoadAnimations = () => {
       setHomepageAnimationHasLoaded(true);
     } else {
       document.body.classList.remove('is-loading');
+      if (headerRef.current) {
+        headerRef.current.style.scale = 'auto';
+      }
     }
 
     window.addEventListener('beforeunload', beforeunload);
@@ -106,8 +108,8 @@ const LoadAnimations = () => {
         ref={headerRef}
         className={
           location.pathname === '/'
-            ? 'headercontainer absolute z-50 h-auto w-[70%] rounded-full p-16 lg:p-24'
-            : 'headercontainer absolute z-50 h-auto w-[70%] -translate-x-[60%] scale-[0.22] rounded-full bg-black p-16 lg:-translate-x-[62%] lg:scale-[0.17] lg:p-24'
+            ? 'headercontainer absolute z-50 h-auto w-[70%] rounded-full p-24'
+            : 'headercontainer absolute z-50 h-auto w-[70%] -translate-x-[60%] scale-[0.27] rounded-full bg-black p-24 lg:-translate-x-[62%] lg:scale-[0.17]'
         }
       >
         <svg

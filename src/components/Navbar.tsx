@@ -28,7 +28,27 @@ export default function Navbar() {
             </NavLink>
           </section>
           <section className="inline-block lg:hidden">
-            <Menu shadow="md" width={200} offset={30} transition={'slide-left'}>
+            <Menu
+              shadow="md"
+              width={200}
+              offset={30}
+              transition={'slide-left'}
+              opened={openedMenu}
+              onClose={() => setOpenedMenu(false)}
+              styles={{
+                dropdown: {
+                  backgroundColor: 'rgba(0,0,0, 0.8)',
+                },
+                item: {
+                  fontFamily: 'Righteous, mono',
+                  fontSize: '1.1rem',
+                  color: 'white',
+                  ':hover': {
+                    backgroundColor: '#ea580c',
+                  },
+                },
+              }}
+            >
               <Menu.Target>
                 <Burger
                   opened={openedMenu}
@@ -38,7 +58,7 @@ export default function Navbar() {
                 />
               </Menu.Target>
               <Menu.Dropdown>
-                <Menu.Item color="#ea580c">
+                <Menu.Item>
                   <NavLink to="/jordan">Air Jordan</NavLink>
                 </Menu.Item>
                 <Menu.Divider />

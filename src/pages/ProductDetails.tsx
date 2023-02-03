@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ShoeNameAnimation from '../components/animations/ShoeNameAnimation';
-import ImageZoom from '../components/ImageZoom';
 import sneakers from '../sneakers.json';
+import ImageZoom from '../components/ImageZoom';
 
 export default function ProductDetails() {
   const [shoeSize, setShoeSize] = useState<number>();
@@ -39,7 +39,7 @@ export default function ProductDetails() {
             </div>
           </section>
           <section className="py-4 pr-4">
-            <h2 className="mt-10 mb-3 w-max bg-white px-1 text-[1.1rem] text-black lg:mt-12 2xl:text-[1.2rem]">
+            <h2 className="mt-12 mb-3 w-max bg-white px-1 text-[1.1rem] text-black xl:mt-6 2xl:text-[1.2rem]">
               Description:
             </h2>
             <article
@@ -49,7 +49,9 @@ export default function ProductDetails() {
             <div className="mt-2 flex w-full justify-between">
               <div className="flex flex-col py-3">
                 <p>Size: {shoeSize}</p>
-                <p>Color: {shoeColor}</p>
+                <p>
+                  Color: <span className="capitalize">{shoeColor}</span>
+                </p>
               </div>
               <p className="p-3 text-[2rem]">
                 $
