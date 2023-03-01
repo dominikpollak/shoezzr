@@ -1,24 +1,16 @@
-import { Burger, Menu, Overlay } from '@mantine/core';
-import React, { useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
-import Account from '../assets/icons/account-icon.svg';
-import Cart from '../assets/icons/cart-icon.svg';
+import { NavLink } from 'react-router-dom';
+import Account from '../../assets/icons/account-icon.svg';
+import Cart from '../../assets/icons/cart-icon.svg';
+import BurgerMenu from './BurgerMenu';
+import SearchField from './SearchField';
 
 export default function Navbar() {
-  const [openedMenu, setOpenedMenu] = useState(false);
-  const title = openedMenu ? 'Close menu' : 'Open menu';
-  const navigate = useNavigate();
-
   return (
     <div className="w-screen">
       <div className="navbar relative z-40 ml-[20%] box-border flex h-[10vh] w-[80%] items-center justify-center pr-2 font-main lg:ml-[18%] lg:w-[82%]">
         <div className="mr-3 flex h-[50%] w-full items-center justify-between">
           <section className="flex h-full w-[35%] items-center justify-center lg:w-[18%]">
-            <input
-              className="flex h-full w-full items-center rounded-md border-[0.2rem] border-black pl-2 text-black duration-150 focus:bg-black focus:text-white focus:outline-white"
-              type="text"
-              placeholder="Search..."
-            />
+            <SearchField />
           </section>
           <section className="">
             <NavLink
@@ -29,51 +21,7 @@ export default function Navbar() {
             </NavLink>
           </section>
           <section className="inline-block lg:hidden">
-            <Menu
-              shadow="md"
-              width={200}
-              offset={30}
-              transition={'slide-left'}
-              opened={openedMenu}
-              onClose={() => setOpenedMenu(false)}
-              styles={{
-                dropdown: {
-                  backgroundColor: 'rgba(0,0,0, 0.9)',
-                },
-                item: {
-                  fontFamily: 'Righteous, mono',
-                  fontSize: '1.1rem',
-                  color: 'white',
-                  ':hover': {
-                    backgroundColor: '#ea580c',
-                  },
-                },
-              }}
-            >
-              <Menu.Target>
-                <Burger
-                  opened={openedMenu}
-                  onClick={() => setOpenedMenu((o) => !o)}
-                  title={title}
-                  size={30}
-                />
-              </Menu.Target>
-              <Menu.Dropdown>
-                <Menu.Item onClick={() => navigate('/jordan')}>
-                  Air Jordan
-                </Menu.Item>
-                <Menu.Divider />
-                <Menu.Item onClick={() => navigate('/nike')}>Nike</Menu.Item>
-                <Menu.Divider />
-                <Menu.Item onClick={() => navigate('/adidas')}>
-                  Adidas
-                </Menu.Item>
-                <Menu.Divider />
-                <Menu.Item>Accessories</Menu.Item>
-                <Menu.Divider />
-                <Menu.Item>Sales</Menu.Item>
-              </Menu.Dropdown>
-            </Menu>
+            <BurgerMenu />
           </section>
           <section className="hidden h-full w-[52%] items-center justify-around text-[1.1rem] lg:flex xl:w-[45%] xl:text-xl">
             <NavLink

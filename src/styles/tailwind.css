@@ -24,12 +24,12 @@
     scrollbar-color: #ea580c transparent;
   }
   body {
-    overflow-x: hidden;
     background-color: #111827;
+    overflow-x: hidden;
   }
 
   .is-loading {
-    pointer-events: none;
     overflow: hidden;
+    pointer-events: none;
   }
 }

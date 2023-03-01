@@ -1,6 +1,6 @@
-import LenisScroll from './components/animations/LenisScroll';
+// import LenisScroll from './components/animations/LenisScroll';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Navbar from '../src/components/Navbar';
+import Navbar from './components/navbar/Navbar';
 import LoadAnimations from './components/animations/LoadAnimations';
 import NoMatch from './components/NoMatch';
 import Adidas from './pages/Adidas';
@@ -11,7 +11,7 @@ import ProductDetails from './pages/ProductDetails';
 import Sales from './pages/Sales';
 
 function App() {
-  LenisScroll();
+  // LenisScroll();
   return (
     <BrowserRouter>
       <LoadAnimations />

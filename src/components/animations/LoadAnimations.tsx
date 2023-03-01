@@ -52,7 +52,7 @@ const LoadAnimations = () => {
       tl.add(
         {
           targets: '.headercontainer',
-          scale: document.body.clientWidth > 1024 ? 0.17 : 0.22,
+          scale: document.body.clientWidth > 1022 ? 0.17 : 0.22,
           duration: 650,
           easing: 'linear',
         },
@@ -81,6 +81,9 @@ const LoadAnimations = () => {
       );
       tl.add({}, '-=1500').complete = function () {
         document.body.classList.remove('is-loading');
+        if (headerRef.current) {
+          headerRef.current.style.scale = 'auto';
+        }
       };
       setHomepageAnimationHasLoaded(true);
     } else {
@@ -94,6 +97,7 @@ const LoadAnimations = () => {
     return () => {
       window.removeEventListener('beforeunload', beforeunload);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
 
   return (
