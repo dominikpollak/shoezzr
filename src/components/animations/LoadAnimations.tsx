@@ -14,6 +14,7 @@ const LoadAnimations = () => {
   useEffect(() => {
     if (location.pathname === '/' && !homepageAnimationHasLoaded) {
       document.body.classList.add('is-loading');
+
       const tl = anime.timeline({});
       tl.add({
         targets: '.headersvg path',

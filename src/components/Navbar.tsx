@@ -1,12 +1,13 @@
-import { Burger, Menu } from '@mantine/core';
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Burger, Menu, Overlay } from '@mantine/core';
+import React, { useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Account from '../assets/icons/account-icon.svg';
 import Cart from '../assets/icons/cart-icon.svg';
 
 export default function Navbar() {
   const [openedMenu, setOpenedMenu] = useState(false);
   const title = openedMenu ? 'Close menu' : 'Open menu';
+  const navigate = useNavigate();
 
   return (
     <div className="w-screen">
@@ -37,7 +38,7 @@ export default function Navbar() {
               onClose={() => setOpenedMenu(false)}
               styles={{
                 dropdown: {
-                  backgroundColor: 'rgba(0,0,0, 0.8)',
+                  backgroundColor: 'rgba(0,0,0, 0.9)',
                 },
                 item: {
                   fontFamily: 'Righteous, mono',
@@ -58,15 +59,15 @@ export default function Navbar() {
                 />
               </Menu.Target>
               <Menu.Dropdown>
-                <Menu.Item>
-                  <NavLink to="/jordan">Air Jordan</NavLink>
+                <Menu.Item onClick={() => navigate('/jordan')}>
+                  Air Jordan
                 </Menu.Item>
                 <Menu.Divider />
-                <Menu.Item>
-                  <NavLink to="/nike">Nike</NavLink>
-                </Menu.Item>
+                <Menu.Item onClick={() => navigate('/nike')}>Nike</Menu.Item>
                 <Menu.Divider />
-                <Menu.Item>Adidas</Menu.Item>
+                <Menu.Item onClick={() => navigate('/adidas')}>
+                  Adidas
+                </Menu.Item>
                 <Menu.Divider />
                 <Menu.Item>Accessories</Menu.Item>
                 <Menu.Divider />

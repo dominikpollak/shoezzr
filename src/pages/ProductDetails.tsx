@@ -62,7 +62,7 @@ export default function ProductDetails() {
             </div>
           </section>
         </aside>
-        <section className="absolute bottom-[2rem] left-5 flex h-[40%] w-[40%] flex-col items-start justify-between md:h-[35%] md:w-[45%] xl:bottom-0 xl:h-[23%] xl:w-[60%] xl:flex-row xl:items-center 2xl:w-[50%]">
+        <section className="absolute bottom-[2rem] left-5 flex h-[40%] w-[40%] flex-col items-start justify-between md:h-[35%] md:w-[55%] xl:bottom-0 xl:h-[23%] xl:w-[60%] xl:flex-row xl:items-center 2xl:w-[50%]">
           <div className="w-[50%] xl:w-[35%]">
             <h2 className="mt-8 ml-1 mb-2 w-max bg-white px-1 text-[1.1rem] text-black">
               Colors variants:

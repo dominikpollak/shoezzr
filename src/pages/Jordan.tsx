@@ -3,11 +3,11 @@ import sneakers from '../sneakers.json';
 
 export default function Jordan() {
   return (
-    <div className="relative w-full h-auto bg-gray-900">
-      <div className="w-full flex justify-center items-center text-white text-[3rem] font-main my-5 p-2">
+    <div className="relative h-auto w-full bg-gray-900">
+      <div className="my-5 flex w-full items-center justify-center p-2 font-main text-[3rem] text-white">
         Air Jordan
       </div>
-      <div className="w-full h-auto pt-12 pb-32 px-16 xl:px-24 grid grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-6">
+      <div className="grid h-auto w-full grid-cols-3 gap-6 px-6 pt-12 pb-32 lg:grid-cols-4 lg:px-16 xl:px-24 2xl:grid-cols-5">
         {sneakers
           .filter((shoe) => shoe.brand_name.includes('Air Jordan'))
           .map((shoe, index) => {

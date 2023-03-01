@@ -24,3 +24,9 @@ yarn-error.log*
 
 # Tailwind processed CSS 
 index.css
+/test-results/
+/playwright-report/
+/playwright/.cache/
+/test-results/
+/playwright-report/
+/playwright/.cache/

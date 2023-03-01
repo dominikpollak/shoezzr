@@ -14,7 +14,7 @@ export default function Home() {
         <HomeTextBanner />
       </div>
       <div className="homepage-body h-screen w-full pt-4">
-        <section className="flex h-[190vh] flex-col items-center justify-around lg:h-[50%] lg:flex-row lg:items-start">
+        <section className="flex h-[120vh] flex-col items-center justify-around sm:h-[190vh] lg:h-[50%] lg:flex-row lg:items-start">
           <HomepageCard
             image={JordanImg}
             link={'/jordan'}
