@@ -1,8 +1,28 @@
-import { useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import SearchIcon from '../../assets/icons/search.svg';
 
 export default function SearchField() {
   const [openSearch, setOpenSearch] = useState<boolean>(false);
+  const searchRef = useRef<HTMLDivElement>(null);
+
+  const handleClickOutside = (e: MouseEvent) => {
+    if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
+      setOpenSearch(false);
+    }
+  };
+
+  useEffect(() => {
+    // if (openSearch) {
+    //   document.body.classList.add('scrolling-disabled');
+    // } else {
+    //   document.body.classList.remove('scrolling-disabled');
+    // }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  });
   return (
     <>
       <input
@@ -20,8 +40,11 @@ export default function SearchField() {
       </button>
 
       {openSearch && (
-        <div className="fixed top-0 left-0 z-50 h-screen w-screen bg-black bg-opacity-50">
-          <div className="absolute top-[50%] left-[50%] h-[5rem] w-[20rem] -translate-x-1/2 -translate-y-1/2 transform rounded-md bg-white">
+        <div className="fixed top-0 left-0 z-50 h-screen w-screen bg-black bg-opacity-60">
+          <div
+            ref={searchRef}
+            className="absolute top-[50%] left-[50%] h-[5rem] w-[20rem] -translate-x-1/2 -translate-y-1/2 transform rounded-md bg-white shadow-lg"
+          >
             <input
               className="h-full w-full items-center rounded-md border-[0.2rem] border-black pl-2 text-black duration-150"
               type="text"

@@ -28,7 +28,7 @@
     overflow-x: hidden;
   }
 
-  .is-loading {
+  .scrolling-disabled {
     overflow: hidden;
     pointer-events: none;
   }

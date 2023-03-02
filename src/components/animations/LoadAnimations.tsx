@@ -13,7 +13,7 @@ const LoadAnimations = () => {
 
   useEffect(() => {
     if (location.pathname === '/' && !homepageAnimationHasLoaded) {
-      document.body.classList.add('is-loading');
+      document.body.classList.add('scrolling-disabled');
 
       const tl = anime.timeline({});
       tl.add({
@@ -80,14 +80,14 @@ const LoadAnimations = () => {
         '-=1050'
       );
       tl.add({}, '-=1500').complete = function () {
-        document.body.classList.remove('is-loading');
+        document.body.classList.remove('scrolling-disabled');
         if (headerRef.current) {
           headerRef.current.style.scale = 'auto';
         }
       };
       setHomepageAnimationHasLoaded(true);
     } else {
-      document.body.classList.remove('is-loading');
+      document.body.classList.remove('scrolling-disabled');
       if (headerRef.current) {
         headerRef.current.style.scale = 'auto';
       }
