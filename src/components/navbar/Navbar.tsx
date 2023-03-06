@@ -8,14 +8,14 @@ export default function Navbar() {
   return (
     <div className="w-screen">
       <div className="navbar relative z-40 ml-[20%] box-border flex h-[10vh] w-[80%] items-center justify-center pr-2 font-main lg:ml-[18%] lg:w-[82%]">
-        <div className="mr-3 flex h-[50%] w-full items-center justify-between">
-          <section className="flex h-full w-[35%] items-center justify-center lg:w-[18%]">
+        <div className="flex h-[50%] w-full items-center justify-between sm:mr-3">
+          <section className="flex h-full w-[15%] items-center justify-center sm:w-[35%] lg:w-[18%]">
             <SearchField />
           </section>
           <section className="">
             <NavLink
               to="/news"
-              className="flex h-[60%] w-auto items-center justify-center rounded-full bg-orange-600 py-2 px-6 text-[0.9rem] text-white ring-2 ring-inset ring-black duration-200 hover:bg-orange-700 hover:ring-[3px] sm:text-[1.1rem] lg:text-xl"
+              className="flex h-[60%] w-auto items-center justify-center rounded-full bg-orange-600 px-5 py-2 text-[0.9rem] text-white ring-2 ring-inset ring-black duration-200 hover:bg-orange-700 hover:ring-[3px] sm:px-6 sm:text-[1.1rem] lg:text-xl"
             >
               News
             </NavLink>
@@ -55,7 +55,7 @@ export default function Navbar() {
               Sales
             </NavLink>
           </section>
-          <section className="flex w-[15%] items-center justify-around lg:w-[10%]">
+          <section className="flex w-[25%] items-center justify-around sm:w-[15%] lg:w-[10%]">
             <NavLink
               to="/cart"
               className="relative flex items-center justify-center text-xl text-black"

@@ -32,7 +32,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
       </section>
 
       <div className="h-[60%] rounded-b-md duration-300 group-hover/body:bg-black lg:h-[40%]">
-        <section className="border-t-[0.4rem] border-orange-600 p-2 pb-4 text-center text-[0.9rem] capitalize leading-[1.5rem] group-hover/body:text-white sm:text-[1.1rem] 2xl:text-[1.2rem]">
+        <section className="border-t-[0.2rem] border-orange-600 p-2 pb-4 text-center text-[0.9rem] capitalize leading-[1.5rem] group-hover/body:text-white sm:border-t-[0.4rem] sm:text-[1.1rem] 2xl:text-[1.2rem]">
           {name}
         </section>
         <section className="absolute left-2 bottom-1 rounded-md bg-black px-2 text-[1rem] leading-[1.9rem] text-white group-hover/body:bg-white group-hover/body:text-black sm:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.5rem]">
