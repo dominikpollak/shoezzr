@@ -12,12 +12,6 @@ export default function SearchField() {
   };
 
   useEffect(() => {
-    // if (openSearch) {
-    //   document.body.classList.add('scrolling-disabled');
-    // } else {
-    //   document.body.classList.remove('scrolling-disabled');
-    // }
-
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
@@ -40,7 +34,7 @@ export default function SearchField() {
       </button>
 
       {openSearch && (
-        <div className="fixed top-0 left-0 z-50 h-screen w-screen bg-black bg-opacity-60">
+        <div className="fixed top-0 right-0 z-50 h-screen w-screen bg-black bg-opacity-60">
           <div
             ref={searchRef}
             className="absolute top-[50%] left-[50%] h-[5rem] w-[20rem] -translate-x-1/2 -translate-y-1/2 transform rounded-md bg-white shadow-lg"

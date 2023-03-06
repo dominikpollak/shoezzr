@@ -58,10 +58,10 @@ const LoadAnimations = () => {
         },
         '-=700'
       );
-      if (document.body.clientWidth <= 400) {
+      if (document.body.clientWidth <= 500) {
         tl.add({
           targets: '.headercontainer',
-          translateX: '-330%',
+          translateX: '-340%',
         });
       } else {
         tl.add({
@@ -116,7 +116,7 @@ const LoadAnimations = () => {
           : 'landingbg absolute z-30 flex h-[10vh] w-screen items-center justify-center bg-slate-100'
       }
     >
-      {window.innerWidth > 400 ? (
+      {window.innerWidth > 500 ? (
         <Link
           to="/"
           ref={headerRef}
@@ -219,7 +219,7 @@ const LoadAnimations = () => {
           className={
             location.pathname === '/'
               ? 'headercontainer absolute z-50 flex h-[200px] w-[200px] items-center justify-center rounded-xl p-14'
-              : 'headercontainer absolute z-50 flex h-[200px] w-[200px] -translate-x-[60%] scale-[0.27] items-center justify-center rounded-xl bg-black p-14 lg:-translate-x-[62%] lg:scale-[0.17] '
+              : 'headercontainer absolute z-50 flex h-[200px] w-[200px] -translate-x-[75%] scale-[0.22] items-center justify-center rounded-xl bg-black p-14'
           }
         >
           <svg
