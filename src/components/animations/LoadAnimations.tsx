@@ -1,6 +1,7 @@
 import anime from 'animejs/lib/anime.es.js';
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import Lenis from '@studio-freight/lenis';
 
 const LoadAnimations = () => {
   const [homepageAnimationHasLoaded, setHomepageAnimationHasLoaded] =
@@ -10,10 +11,20 @@ const LoadAnimations = () => {
   const beforeunload = () => {
     setHomepageAnimationHasLoaded(false);
   };
+  const [animationRunning, setAnimationRunning] = useState<boolean>(true);
+
+  const lenis = new Lenis({});
+  function raf(time: number) {
+    if (animationRunning) {
+      lenis.raf(time);
+    }
+    requestAnimationFrame(raf);
+  }
 
   useEffect(() => {
     if (location.pathname === '/' && !homepageAnimationHasLoaded) {
       document.body.classList.add('scrolling-disabled');
+      setAnimationRunning(true);
 
       const tl = anime.timeline({});
       tl.add({
@@ -84,13 +95,19 @@ const LoadAnimations = () => {
         if (headerRef.current) {
           headerRef.current.style.scale = 'auto';
         }
+
+        requestAnimationFrame(raf);
       };
       setHomepageAnimationHasLoaded(true);
+      setAnimationRunning(false);
     } else {
       document.body.classList.remove('scrolling-disabled');
       if (headerRef.current) {
         headerRef.current.style.scale = 'auto';
       }
+      setAnimationRunning(false);
+
+      requestAnimationFrame(raf);
     }
 
     window.addEventListener('beforeunload', beforeunload);

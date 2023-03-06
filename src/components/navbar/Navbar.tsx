@@ -15,7 +15,7 @@ export default function Navbar() {
           <section className="">
             <NavLink
               to="/news"
-              className="flex h-[60%] w-auto items-center justify-center rounded-full bg-orange-600 py-2 px-6 text-[1.1rem] text-white ring-2 ring-inset ring-black duration-200 hover:bg-orange-700 hover:ring-[3px] lg:text-xl"
+              className="flex h-[60%] w-auto items-center justify-center rounded-full bg-orange-600 py-2 px-6 text-[0.9rem] text-white ring-2 ring-inset ring-black duration-200 hover:bg-orange-700 hover:ring-[3px] sm:text-[1.1rem] lg:text-xl"
             >
               News
             </NavLink>
