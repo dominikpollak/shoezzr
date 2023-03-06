@@ -10,11 +10,13 @@ export default function Home() {
     <div className="relative h-auto w-full pt-4">
       <div className="absolute left-0 h-[60%] w-[50%] skew-y-12 bg-gradient-to-br from-slate-800/[0.3] to-slate-500/[0.3]" />
       <div className="absolute right-0 h-[60%] w-[50%] -skew-y-12 bg-gradient-to-br from-orange-400/[0.3] to-orange-600/[0.3]" />
+
       <div className="relative my-10 flex h-[8%] w-full items-center justify-center">
         <HomeTextBanner />
       </div>
+
       <div className="homepage-body h-screen w-full pt-4">
-        <section className="flex h-[120vh] flex-col items-center justify-around sm:h-[190vh] lg:h-[50%] lg:flex-row lg:items-start">
+        <section className="flex h-[150vh] flex-col items-center justify-around sm:h-[190vh] lg:h-[50%] lg:flex-row lg:items-start">
           <HomepageCard
             image={JordanImg}
             link={'/jordan'}
