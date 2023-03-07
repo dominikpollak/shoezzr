@@ -2,6 +2,7 @@ import AdidasImg from '../assets/images/homepage/adidas.png';
 import JordanImg from '../assets/images/homepage/jordan.png';
 import NikeImg from '../assets/images/homepage/nike.jpg';
 import HomeTextBanner from '../components/banners/HomeTextBanner';
+import BrandCarousel from '../components/BrandCarousel';
 import HomepageCard from '../components/cards/HomepageCard';
 import SalesCard from '../components/cards/SalesCard';
 
@@ -36,6 +37,11 @@ export default function Home() {
             altTitle={'adidas'}
           />
         </section>
+
+        <section className="h-[35vh] w-full">
+          <BrandCarousel />
+        </section>
+
         <section className="flex h-[20%] w-full items-center justify-center">
           <SalesCard />
         </section>

@@ -16,15 +16,27 @@ const LoadAnimations = () => {
       document.body.classList.add('scrolling-disabled');
 
       const tl = anime.timeline({});
-      tl.add({
-        targets: '.headersvg path',
-        strokeDashoffset: [anime.setDashoffset, 0],
-        easing: 'easeInQuad',
-        duration: 1400,
-        delay: function (el, i) {
-          return i * 100;
-        },
-      });
+      if (window.innerWidth > 500) {
+        tl.add({
+          targets: '.headersvg path',
+          strokeDashoffset: [anime.setDashoffset, 0],
+          easing: 'easeInQuad',
+          duration: 1400,
+          delay: function (el, i) {
+            return i * 100;
+          },
+        });
+      } else {
+        tl.add({
+          targets: '.headersvg path',
+          strokeDashoffset: [anime.setDashoffset, 0],
+          easing: 'easeInQuad',
+          duration: 2300,
+          delay: function (el, i) {
+            return i * 100;
+          },
+        });
+      }
       tl.add(
         {
           targets: '.headersvg',
@@ -89,18 +101,10 @@ const LoadAnimations = () => {
       );
       tl.add({}, '-=1500').complete = function () {
         document.body.classList.remove('scrolling-disabled');
-        if (headerRef.current) {
-          headerRef.current.style.transform = 'auto';
-        }
       };
       setHomepageAnimationHasLoaded(true);
     } else {
       document.body.classList.remove('scrolling-disabled');
-      // if (headerRef.current) {
-      //   headerRef.current.style.scale = '0.2';
-      //   headerRef.current.style.transform = 'translateX(0%)';
-      //   headerRef.current.style.left = '0';
-      // }
     }
 
     window.addEventListener('beforeunload', beforeunload);
@@ -115,7 +119,7 @@ const LoadAnimations = () => {
       className={
         location.pathname === '/'
           ? 'landingbg absolute z-30 flex h-screen w-screen items-center justify-center bg-slate-100'
-          : 'landingbg absolute z-30 flex h-[10vh] w-screen items-center bg-slate-100'
+          : 'landingbg absolute z-30 flex h-[10vh] w-screen items-center justify-center bg-slate-100'
       }
     >
       {window.innerWidth > 500 ? (
@@ -221,7 +225,7 @@ const LoadAnimations = () => {
           className={
             location.pathname === '/'
               ? 'headercontainer absolute z-50 flex h-[200px] w-[200px] items-center justify-center rounded-xl p-14'
-              : 'headercontainer absolute left-0 z-50 flex h-[200px] w-[200px] -translate-x-[30%] scale-[0.22] items-center justify-center rounded-xl bg-black p-14'
+              : 'headercontainer absolute z-50 flex h-[200px] w-[200px] -translate-x-[30%] scale-[0.22] items-center rounded-xl bg-black p-14'
           }
         >
           <svg
