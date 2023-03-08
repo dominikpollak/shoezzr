@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ShoeNameAnimation from '../components/animations/ShoeNameAnimation';
-import sneakers from '../sneakers.json';
 import ImageZoom from '../components/ImageZoom';
+import sneakers from '../sneakers.json';
 
 export default function ProductDetails() {
   const [shoeSize, setShoeSize] = useState<number>();
@@ -25,9 +25,11 @@ export default function ProductDetails() {
         <aside className="float-left flex h-auto w-[49%] items-center justify-start overflow-hidden rounded-md bg-slate-50 lg:h-[60%] xl:h-[75%]">
           <ImageZoom image={matchedShoe?.main_picture_url || ''} />
         </aside>
+
         <aside className="relative float-right h-full w-[50%] p-2">
           {/* Matrix animation of the shoe name*/}
           <ShoeNameAnimation shoeName={matchedShoe?.name} />
+
           <section className="p-4">
             <div className="float-right flex w-full justify-around pt-4 text-center text-[1rem] lg:w-[85%] xl:w-[65%] xl:text-[1.1rem] 2xl:w-[70%] 2xl:text-[1.2rem]">
               <p className="flex items-center">
@@ -38,6 +40,7 @@ export default function ProductDetails() {
               </p>
             </div>
           </section>
+
           <section className="py-4 pr-4">
             <h2 className="mt-12 mb-3 w-max bg-white px-1 text-[1.1rem] text-black xl:mt-6 2xl:text-[1.2rem]">
               Description:
@@ -62,6 +65,7 @@ export default function ProductDetails() {
             </div>
           </section>
         </aside>
+
         <section className="absolute bottom-[2rem] left-5 flex h-[40%] w-[40%] flex-col items-start justify-between md:h-[35%] md:w-[55%] xl:bottom-0 xl:h-[23%] xl:w-[60%] xl:flex-row xl:items-center 2xl:w-[50%]">
           <div className="w-[50%] xl:w-[35%]">
             <h2 className="mt-8 ml-1 mb-2 w-max bg-white px-1 text-[1.1rem] text-black">
