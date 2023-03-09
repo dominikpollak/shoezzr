@@ -9,9 +9,8 @@ export default function Navbar() {
     <div className="w-screen">
       <div className="navbar relative z-40 ml-[20%] box-border flex h-[10vh] w-[80%] items-center justify-center pr-2 font-main lg:ml-[18%] lg:w-[82%]">
         <div className="flex h-[50%] w-full items-center justify-between sm:mr-3">
-          <section className="flex h-full w-[15%] items-center justify-center sm:w-[35%] lg:w-[18%]">
-            <SearchField />
-          </section>
+          <SearchField />
+
           <section className="">
             <NavLink
               to="/news"
@@ -20,9 +19,9 @@ export default function Navbar() {
               News
             </NavLink>
           </section>
-          <section className="inline-block lg:hidden">
-            <BurgerMenu />
-          </section>
+
+          <BurgerMenu />
+
           <section className="hidden h-full w-[52%] items-center justify-around text-[1.1rem] lg:flex xl:w-[45%] xl:text-xl">
             <NavLink
               to="/jordan"

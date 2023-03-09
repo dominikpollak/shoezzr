@@ -16,7 +16,7 @@ export default function Home() {
         <HomeTextBanner />
       </div>
 
-      <div className="homepage-body h-screen w-full pt-4">
+      <div className="homepage-body h-screen w-full pt-6">
         <section className="flex h-[150vh] flex-col items-center justify-around sm:h-[190vh] lg:h-[50%] lg:flex-row lg:items-start">
           <HomepageCard
             image={JordanImg}
@@ -38,7 +38,7 @@ export default function Home() {
           />
         </section>
 
-        <section className="mt-12 w-full sm:h-[15vh] xl:h-[25vh]">
+        <section className="mt-12 w-full sm:h-[15vh]">
           <BrandCarousel />
         </section>
 

@@ -8,6 +8,7 @@ import Jordan from './pages/Jordan';
 import Nike from './pages/Nike';
 import ProductDetails from './pages/ProductDetails';
 import Sales from './pages/Sales';
+import Search from './pages/Search';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/sales" element={<Sales />} />
         {/* <Route path="/hoodies" element={<Hoodies />} /> */}
         <Route path="/:brand/:slug" element={<ProductDetails />} />
+        <Route path="/search/:searchParams" element={<Search />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </BrowserRouter>
