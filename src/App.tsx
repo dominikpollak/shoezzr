@@ -1,8 +1,9 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Navbar from './components/navbar/Navbar';
 import LoadAnimations from './components/animations/LoadAnimations';
+import Navbar from './components/navbar/Navbar';
 import NoMatch from './components/NoMatch';
 import Adidas from './pages/Adidas';
+import Cart from './pages/Cart';
 import Home from './pages/Home';
 import Jordan from './pages/Jordan';
 import Nike from './pages/Nike';
@@ -24,6 +25,7 @@ function App() {
         {/* <Route path="/hoodies" element={<Hoodies />} /> */}
         <Route path="/:brand/:slug" element={<ProductDetails />} />
         <Route path="/search/:searchParams" element={<Search />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </BrowserRouter>

@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import SadEmoji from '../assets/icons/sad-emoji.svg';
 import ItemCard from '../components/cards/ItemCard';
 import sneakers from '../sneakers.json';
 
@@ -37,8 +38,15 @@ const Search = () => {
         })}
       </div>
       {searchedShoes.length === 0 && (
-        <div className="flex h-full w-full items-center justify-center font-main text-[2rem] text-white">
-          No results found
+        <div className="flex h-full w-full flex-col items-center justify-center font-main text-[2rem] text-white">
+          <p>No results found</p>
+          <img
+            src={SadEmoji}
+            height={80}
+            width={80}
+            alt=""
+            className="mt-10 invert"
+          />
         </div>
       )}
     </>
