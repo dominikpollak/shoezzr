@@ -49,7 +49,7 @@ export default function SearchField() {
       <motion.input
         onKeyPress={handleSearchPress}
         ref={searchRef}
-        className="hidden h-full w-full items-center rounded-md border-[0.2rem] border-black pl-2 text-black duration-150 focus:bg-black focus:text-white focus:outline-white sm:flex"
+        className="hidden h-full w-full items-center rounded-md border-[0.2rem] border-black pl-2 pr-8 text-black duration-150 focus:bg-black focus:text-white focus:outline-white sm:flex"
         onChange={(e) => (searchQuery.current = e.target.value)}
         type="text"
         placeholder="Search..."

@@ -19,8 +19,8 @@ export default function ProductDetails() {
   }, [descriptionRef, matchedShoe?.story_html]);
 
   return (
-    <div className="mt-[2rem] flex h-auto w-screen justify-center font-main text-white sm:h-screen">
-      <main className="relative flex h-auto w-full flex-col rounded-lg bg-white bg-black/[0.5] p-2 sm:flex-row sm:p-0 md:h-[70%] lg:h-[60%] lg:w-[90%] xl:h-[80%] 2xl:w-[80%]">
+    <div className="mt-[1rem] flex h-auto w-screen justify-center font-main text-white sm:h-screen">
+      <main className="relative flex h-auto w-full flex-col rounded-lg bg-white bg-black/[0.5] p-2 sm:flex-row sm:p-0 md:h-[70%] lg:h-[60%] lg:w-[90%] xl:h-[85%] 2xl:w-[80%]">
         <aside className="hidden h-auto w-full items-center justify-start overflow-hidden rounded-md bg-slate-50 sm:float-left sm:flex sm:w-[49%] md:h-1/2 lg:h-[60%] xl:h-[75%]">
           <ImageZoom image={matchedShoe?.main_picture_url || ''} />
         </aside>
