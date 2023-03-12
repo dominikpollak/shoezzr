@@ -38,7 +38,7 @@ export default function Home() {
           />
         </section>
 
-        <section className="mt-12 w-full sm:h-[15vh]">
+        <section className="mt-12 h-[10vh] w-full sm:h-[15vh]">
           <BrandCarousel />
         </section>
 

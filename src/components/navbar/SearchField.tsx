@@ -12,11 +12,18 @@ export default function SearchField() {
 
   const searchQuery = useRef<string>('');
 
+  const handleSearch = (e: React.MouseEvent<HTMLImageElement>) => {
+    if (searchQuery.current !== '') {
+      navigate(`/search/${searchQuery.current}`);
+    }
+  };
+
   const handleClickOutside = (e: MouseEvent) => {
     if (
       searchRefMobile.current &&
       !searchRefMobile.current.contains(e.target as Node)
     ) {
+      handleSearch(e as any);
       setOpenSearch(false);
     }
     if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
@@ -24,16 +31,13 @@ export default function SearchField() {
     }
   };
 
-  const handleSearch = (e: React.MouseEvent<HTMLImageElement>) => {
-    if (searchQuery.current !== '') {
-      navigate(`/search/${searchQuery.current}`);
-    }
-  };
-
   const handleSearchPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       if (searchQuery.current !== '') {
         navigate(`/search/${searchQuery.current}`);
+      }
+      if (openSearch) {
+        setOpenSearch(false);
       }
     }
   };
@@ -54,11 +58,11 @@ export default function SearchField() {
         type="text"
         placeholder="Search..."
       />
-      <button className="h-[35px] w-[35px] ">
+      <button className="-ml-9 hidden h-[30px] w-[30px] sm:block ">
         <img
           src={SearchIcon}
           alt="Search icon"
-          className="-ml-9 h-full w-full invert"
+          className="h-full w-full invert"
           onClick={handleSearch}
         />
       </button>
@@ -82,6 +86,9 @@ export default function SearchField() {
               className="h-full w-full items-center rounded-md border-[0.2rem] border-black pl-2 text-black duration-150"
               type="text"
               placeholder="Search..."
+              onChange={(e) => (searchQuery.current = e.target.value)}
+              onKeyPress={handleSearchPress}
+              ref={searchRef}
             />
           </div>
         </div>
