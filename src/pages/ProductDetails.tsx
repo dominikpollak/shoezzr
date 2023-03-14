@@ -1,15 +1,22 @@
 import { useEffect, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import ShoeNameAnimation from '../components/animations/ShoeNameAnimation';
 import ImageZoom from '../components/ImageZoom';
+import { addToCart } from '../features/cartSlice';
 import sneakers from '../sneakers.json';
 
 export default function ProductDetails() {
+  const { slug } = useParams();
   const [shoeSize, setShoeSize] = useState<number>();
   const [shoeColor, setShoeColor] = useState<string>();
-  const { slug } = useParams();
   const matchedShoe = sneakers.find((shoe) => shoe.slug === slug);
   const descriptionRef = useRef<HTMLParagraphElement>(null);
+  const dispatch = useDispatch();
+
+  const handleAddToCart = (product: object) => {
+    dispatch(addToCart(product));
+  };
 
   useEffect(() => {
     descriptionRef.current &&
@@ -128,7 +135,10 @@ export default function ProductDetails() {
 
         <section className="absolute right-5 bottom-5 hidden sm:block">
           <div className="flex text-[1.2rem] ">
-            <button className="mr-3 rounded-sm bg-orange-600 p-4 text-black hover:bg-orange-500">
+            <button
+              onClick={() => handleAddToCart(matchedShoe || {})}
+              className="mr-3 rounded-sm bg-orange-600 p-4 text-black hover:bg-orange-500"
+            >
               Add to cart
             </button>
             <button className="rounded-sm bg-orange-600 p-4 text-black hover:bg-orange-500">

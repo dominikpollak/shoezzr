@@ -6,10 +6,12 @@ import './styles/tailwind.css';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import productsReducer from './features/productsSlice';
+import cartReducer from './features/cartSlice';
 
 const store = configureStore({
   reducer: {
     products: productsReducer,
+    cart: cartReducer,
   },
 });
 
@@ -22,7 +24,4 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   </React.StrictMode>
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();

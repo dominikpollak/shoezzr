@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LoadAnimations from './components/animations/LoadAnimations';
+import Footer from './components/footer/Footer';
 import Navbar from './components/navbar/Navbar';
 import NoMatch from './components/NoMatch';
 import Adidas from './pages/Adidas';
@@ -28,6 +29,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

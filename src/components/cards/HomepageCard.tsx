@@ -17,7 +17,7 @@ const HomepageCard: React.FC<HomepageCardProps> = ({
   return (
     <Link
       to={link}
-      className="group relative h-[30%] w-[90%] overflow-hidden rounded-2xl shadow-md ring-4 ring-white ring-offset-black duration-300 hover:ring-offset-4 sm:h-[31%] sm:w-[570px] lg:h-[90%] lg:w-[330px] xl:h-full xl:w-[400px] 2xl:w-[500px]"
+      className="group relative h-[350px] w-[80%] overflow-hidden rounded-2xl shadow-md ring-4 ring-white ring-offset-black duration-300 hover:ring-offset-4 sm:h-[31%] sm:w-[570px] lg:h-[90%] lg:w-[330px] xl:h-[500px] xl:w-[400px] 2xl:w-[600px]"
     >
       <div className="h-[80%] w-full">
         <img
