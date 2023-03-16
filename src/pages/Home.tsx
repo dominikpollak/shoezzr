@@ -9,7 +9,7 @@ import SalesCard from '../components/cards/SalesCard';
 
 export default function Home() {
   return (
-    <div className="relative h-auto w-full py-6 sm:h-auto lg:h-auto">
+    <div className="relative h-auto w-full pt-6 pb-24 sm:h-auto lg:h-auto">
       <div className="absolute left-0 h-[60%] w-[50%] skew-y-12 bg-gradient-to-br from-slate-800/[0.3] to-slate-500/[0.3]" />
       <div className="absolute right-0 h-[60%] w-[50%] -skew-y-12 bg-gradient-to-br from-orange-400/[0.3] to-orange-600/[0.3]" />
 

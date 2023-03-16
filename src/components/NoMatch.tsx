@@ -2,7 +2,7 @@ import SadEmoji from '../assets/icons/sad-emoji.svg';
 
 export default function NoMatch() {
   return (
-    <div className="h-full w-screen flex justify-center mt-[5rem] font-main text-white text-[2rem]">
+    <div className="h-screen w-screen flex justify-center mt-[5rem] font-main text-white text-[2rem]">
       <div className="w-[50%] text-center">
         Sorry, this page doesn't exist.
         <div>
