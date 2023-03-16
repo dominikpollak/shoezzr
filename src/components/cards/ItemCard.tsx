@@ -23,15 +23,15 @@ const ItemCard: React.FC<ItemCardProps> = ({
       to={link}
       className="group/body relative flex flex-col rounded-md bg-white font-main ring-4 ring-white ring-offset-black duration-300 hover:ring-offset-4"
     >
-      <section className="h-[85%] w-full overflow-hidden sm:h-full sm:min-h-[200px] sm:p-4">
+      <div className="w-full overflow-hidden sm:min-h-[220px] sm:p-4">
         <img
           src={img}
           alt=""
           className="w-full duration-300 group-hover/body:scale-110 sm:w-[90%]"
         />
-      </section>
+      </div>
 
-      <div className="h-[60%] rounded-b-md duration-300 group-hover/body:bg-black lg:h-[50%]">
+      <div className="h-[60%] rounded-b-md duration-300 group-hover/body:bg-black lg:h-[70%]">
         <section className="border-t-[0.2rem] border-orange-600 p-2 pb-4 text-center text-[0.9rem] capitalize leading-[1.5rem] group-hover/body:text-white sm:border-t-[0.4rem] sm:text-[1.1rem] 2xl:text-[1.2rem]">
           {name}
         </section>
