@@ -4,7 +4,7 @@ import sneakers from '../sneakers.json';
 export default function Jordan() {
   return (
     <div className="relative h-auto w-full bg-gray-900">
-      <div className="my-5 flex w-full items-center justify-center p-2 font-main text-[3rem] text-white">
+      <div className="flex w-full items-center justify-center bg-black p-2 py-5 font-main text-[3rem] text-orange-600">
         Nike
       </div>
       <div className="grid h-auto w-full grid-cols-2 gap-6 px-6 pt-4 pb-32 sm:pt-12 md:grid-cols-3 lg:grid-cols-3 lg:px-16 xl:grid-cols-4 xl:px-24 2xl:grid-cols-5">

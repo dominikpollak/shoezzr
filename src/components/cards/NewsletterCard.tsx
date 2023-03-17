@@ -27,7 +27,7 @@ const NewsletterCard = () => {
             />
           </label>
 
-          <div className="mt-5 flex w-full justify-center">
+          <div className="mt-8 flex w-full justify-center">
             <button
               type="submit"
               className="rounded-sm bg-orange-600 px-3 py-2 text-[1.2rem] font-bold leading-none text-black duration-150 hover:bg-orange-500 hover:tracking-wide"

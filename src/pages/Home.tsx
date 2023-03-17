@@ -47,7 +47,7 @@ export default function Home() {
           <SalesCard />
         </section>
 
-        <section className="mt-20 flex h-[250px] w-full items-center justify-center md:h-[300px]">
+        <section className="mt-20 flex h-[250px] w-full items-center justify-center md:h-[320px]">
           <NewsletterCard />
         </section>
       </div>
