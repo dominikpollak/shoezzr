@@ -57,7 +57,7 @@ const LoadAnimations = () => {
       );
       tl.add({
         targets: '.landingbg',
-        height: '10vh',
+        height: document.body.clientWidth > 1024 ? '10vh' : '8vh',
         duration: 650,
         easing: 'easeInQuad',
       });
@@ -119,7 +119,7 @@ const LoadAnimations = () => {
       className={
         location.pathname === '/'
           ? 'landingbg absolute z-30 flex h-screen w-screen items-center justify-center bg-slate-100'
-          : 'landingbg absolute z-30 flex h-[10vh] w-screen items-center justify-center bg-slate-100'
+          : 'landingbg absolute z-30 flex h-[8vh] w-screen items-center justify-center bg-slate-100 lg:h-[10vh]'
       }
     >
       {window.innerWidth > 500 ? (

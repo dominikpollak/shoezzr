@@ -7,7 +7,7 @@ import SearchField from './SearchField';
 export default function Navbar() {
   return (
     <div className="w-screen">
-      <div className="navbar relative z-40 ml-[20%] box-border flex h-[10vh] w-[80%] items-center justify-center pr-2 font-main lg:ml-[18%] lg:w-[82%]">
+      <div className="navbar relative z-40 ml-[20%] box-border flex h-[8vh] w-[80%] items-center justify-center pr-2 font-main lg:ml-[18%] lg:h-[10vh] lg:w-[82%]">
         <div className="flex h-[50%] w-full items-center justify-between sm:mr-3">
           <SearchField />
 
@@ -71,7 +71,7 @@ export default function Navbar() {
           </section>
         </div>
       </div>
-      <div className="navbar absolute top-[10vh] z-50 h-[1%] w-screen bg-orange-600" />
+      <div className="navbar absolute top-[8vh] z-50 h-[1%] w-screen bg-orange-600 lg:top-[10vh]" />
     </div>
   );
 }
