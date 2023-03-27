@@ -3,14 +3,12 @@ import LoadAnimations from './components/animations/LoadAnimations';
 import Footer from './components/footer/Footer';
 import Navbar from './components/navbar/Navbar';
 import NoMatch from './components/NoMatch';
-import Adidas from './pages/Adidas';
 import Cart from './pages/Cart';
 import Home from './pages/Home';
-import Jordan from './pages/Jordan';
-import Nike from './pages/Nike';
 import ProductDetails from './pages/ProductDetails';
 import Sales from './pages/Sales';
 import Search from './pages/Search';
+import ProductList from './pages/ProductList';
 
 function App() {
   return (
@@ -19,9 +17,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/jordan" element={<Jordan />} />
-        <Route path="/nike" element={<Nike />} />
-        <Route path="/adidas" element={<Adidas />} />
+        <Route path="/nike" element={<ProductList brandName='Nike' />} />
+        <Route path="/adidas" element={<ProductList brandName='adidas' />} />
+        <Route path="/jordan" element={<ProductList brandName='Jordan' />} />
         <Route path="/sales" element={<Sales />} />
         {/* <Route path="/hoodies" element={<Hoodies />} /> */}
         <Route path="/:brand/:slug" element={<ProductDetails />} />
