@@ -7,14 +7,27 @@ const LoadAnimations = () => {
     useState(false);
   const location = useLocation();
   const headerRef = useRef<HTMLAnchorElement>(null);
+  const landingRef = useRef<HTMLDivElement>(null);
   const beforeunload = () => {
     setHomepageAnimationHasLoaded(false);
+  };
+
+  const styleReset = () => {
+    document.body.classList.remove('scrolling-disabled');
+    if (landingRef.current && headerRef.current) {
+      landingRef.current.removeAttribute('style');
+      landingRef.current.className =
+        'landingbg absolute z-30 flex h-[8vh] w-screen items-center justify-center bg-slate-100 lg:h-[10vh]';
+
+      headerRef.current.removeAttribute('style');
+      headerRef.current.className =
+        'absolute z-50 h-auto w-[70%] scale-[0.17] rounded-full bg-black p-14 md:p-24 -translate-x-[61.2%]';
+    }
   };
 
   useEffect(() => {
     if (location.pathname === '/' && !homepageAnimationHasLoaded) {
       document.body.classList.add('scrolling-disabled');
-
       const tl = anime.timeline({});
       if (window.innerWidth > 500) {
         tl.add({
@@ -64,24 +77,16 @@ const LoadAnimations = () => {
       tl.add(
         {
           targets: '.headercontainer',
-          scale: document.body.clientWidth > 1022 ? 0.17 : 0.22,
+          scale: 0.17,
           duration: 650,
           easing: 'linear',
         },
         '-=700'
       );
-      if (document.body.clientWidth <= 500) {
-        tl.add({
-          targets: '.headercontainer',
-          translateX: window.innerWidth * -0.9333 + '%',
-        });
-      } else {
-        tl.add({
-          targets: '.headercontainer',
-          translateX: document.body.clientWidth > 1022 ? '-360%' : '-270%',
-        });
-      }
-
+      tl.add({
+        targets: '.headercontainer',
+        translateX: '-360%',
+      });
       tl.add(
         {
           targets: '.navbar',
@@ -100,13 +105,12 @@ const LoadAnimations = () => {
         '-=1050'
       );
       tl.add({}, '-=1500').complete = function () {
-        document.body.classList.remove('scrolling-disabled');
+        styleReset();
       };
       setHomepageAnimationHasLoaded(true);
     } else {
-      document.body.classList.remove('scrolling-disabled');
+      styleReset();
     }
-
     window.addEventListener('beforeunload', beforeunload);
     return () => {
       window.removeEventListener('beforeunload', beforeunload);
@@ -116,10 +120,11 @@ const LoadAnimations = () => {
 
   return (
     <div
+      ref={landingRef}
       className={
         location.pathname === '/'
           ? 'landingbg absolute z-30 flex h-screen w-screen items-center justify-center bg-slate-100'
-          : 'landingbg absolute z-30 flex h-[8vh] w-screen items-center justify-center bg-slate-100 lg:h-[10vh]'
+          : 'absolute z-30 flex h-[8vh] w-screen items-center justify-center bg-slate-100 lg:h-[10vh]'
       }
     >
       {window.innerWidth > 500 ? (
@@ -129,7 +134,7 @@ const LoadAnimations = () => {
           className={
             location.pathname === '/'
               ? 'headercontainer absolute z-50 h-auto w-[70%] rounded-full p-24'
-              : 'headercontainer absolute z-50 h-auto w-[70%] -translate-x-[60%] scale-[0.27] rounded-full bg-black p-24 lg:-translate-x-[62%] lg:scale-[0.17]'
+              : 'absolute z-50 h-auto w-[70%] -translate-x-[60%] scale-[0.17] rounded-full bg-black p-14 md:p-24 lg:-translate-x-[62%]'
           }
         >
           <svg

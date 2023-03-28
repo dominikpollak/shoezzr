@@ -61,9 +61,9 @@ export default function ProductDetails() {
             />
             <div className="mt-2 flex w-full justify-between">
               <div className="flex flex-col py-3">
-                <p>Size: {shoeSize}</p>
+                <p><span className='text-orange-600'>Size: </span>{shoeSize}</p>
                 <p>
-                  Color: <span className="capitalize">{shoeColor}</span>
+                 <span className='text-orange-600'>Color: </span><span className="capitalize">{shoeColor}</span>
                 </p>
               </div>
               <p className="p-3 text-[2rem]">
