@@ -33,6 +33,8 @@ const Cart = () => {
             </span>
             <span>
               <h1>{item.name}</h1>
+              <h1>Size: {item.shoeSize}</h1>
+              <h1>Color: {item.shoeColor}</h1>
               <h1>Price: ${item.retail_price_cents / 100}</h1>
               <h1>Quantity: {item.cartQuantity}</h1>
               <button onClick={() => removeItem(item)}>Remove</button>

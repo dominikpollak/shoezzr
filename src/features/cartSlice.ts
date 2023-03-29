@@ -7,6 +7,8 @@ export interface CartItem {
   retail_price_cents: number;
   cartQuantity: number;
   main_picture_url: string;
+  shoeSize: number;
+  shoeColor: string;
 }
 
 interface CartState {

@@ -11,20 +11,33 @@ export default function ProductDetails() {
   const { slug } = useParams();
   const [shoeSize, setShoeSize] = useState<number>();
   const [shoeColor, setShoeColor] = useState<string>();
+  const [showError, setShowError] = useState<boolean>(false);
   const matchedShoe = sneakers.find((shoe) => shoe.slug === slug);
   const descriptionRef = useRef<HTMLParagraphElement>(null);
   const dispatch = useDispatch();
 
+  const handleSizeChange = (size: number) => {
+    setShoeSize(size);
+  };
+
+  const handleColorChange = (color: string) => {
+    setShoeColor(color);
+  };
   const handleAddToCart = (product: object) => {
+    if (!shoeSize || !shoeColor) {
+      setShowError(true);
+      return;
+    }
     dispatch(addToCart(product as CartItem));
   };
 
   useEffect(() => {
+    if (shoeSize && shoeColor) setShowError(false);
     descriptionRef.current &&
       (descriptionRef.current.innerHTML =
         matchedShoe?.story_html ||
         'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur dolorem blanditiis nobis molestias cum odit natus quisquam sit voluptatem a facere maiores, repudiandae libero dolorum animi laboriosam necessitatibus quam temporibus. <br> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur dolorem blanditiis nobis molestias cum odit natus quisquam sit voluptatem a facere maiores, repudiandae libero dolorum animi laboriosam necessitatibus quam temporibus.');
-  }, [descriptionRef, matchedShoe?.story_html]);
+  }, [descriptionRef, matchedShoe?.story_html, shoeColor, shoeSize]);
 
   return (
     <div className="mt-[1rem] flex h-auto w-screen justify-center font-main text-white sm:h-screen">
@@ -98,7 +111,7 @@ export default function ProductDetails() {
                         ? 'm-1 inline-block w-max cursor-pointer border-[1px] bg-orange-600 px-1'
                         : 'm-1 inline-block w-max cursor-pointer border-[1px] px-1'
                     }
-                    onClick={(e) => setShoeColor(color)}
+                    onClick={(e) => handleColorChange(color)}
                   >
                     {color}
                   </li>
@@ -120,7 +133,7 @@ export default function ProductDetails() {
                       ? 'inline-block w-[2.8rem] cursor-pointer border-[1px] bg-orange-600 p-2 text-center [&:nth-last-child(1)]:ml-0'
                       : 'inline-block w-[2.8rem] cursor-pointer border-[1px] p-2 text-center [&:nth-last-child(1)]:ml-0'
                   }
-                  onClick={(e) => setShoeSize(size)}
+                  onClick={(e) => handleSizeChange(size)}
                 >
                   {size}
                 </li>
@@ -129,8 +142,18 @@ export default function ProductDetails() {
           </div>
 
           <div className="absolute right-1 bottom-0 mt-4 pb-4 sm:hidden">
+            {showError && (
+              <p className="text-[0.8rem] text-red-600">
+                Please select a size and color
+              </p>
+            )}
             <div className="flex text-[1.2rem] ">
-              <button className="mr-3 rounded-sm bg-orange-600 p-4 text-black hover:bg-orange-500">
+              <button
+                onClick={() =>
+                  handleAddToCart({ ...matchedShoe, shoeColor, shoeSize } || {})
+                }
+                className="mr-3 rounded-sm bg-orange-600 p-4 text-black hover:bg-orange-500"
+              >
                 Add to cart
               </button>
               <button className="rounded-sm bg-orange-600 p-4 text-black hover:bg-orange-500">
@@ -141,9 +164,16 @@ export default function ProductDetails() {
         </div>
 
         <section className="absolute right-5 bottom-5 hidden sm:block">
+          {showError && (
+            <p className="mb-3 text-[0.9rem] text-white">
+              Please select a size and color
+            </p>
+          )}
           <div className="flex text-[1.2rem] ">
             <button
-              onClick={() => handleAddToCart(matchedShoe || {})}
+              onClick={() =>
+                handleAddToCart({ ...matchedShoe, shoeColor, shoeSize } || {})
+              }
               className="mr-3 rounded-sm bg-orange-600 p-4 text-black hover:bg-orange-500"
             >
               Add to cart
