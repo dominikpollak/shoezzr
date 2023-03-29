@@ -1,23 +1,5 @@
-# cra-template-tailwindcss-typescript
+## Shoezzr
 
-A streamlined [Tailwind CSS v3.1](https://tailwindcss.com) template for [Create React App](https://github.com/facebook/create-react-app) in [TypeScript](https://www.typescriptlang.org/).
+Sneakers e-commerce project that is yet to be finished. There are still a few problems with responsivity of the navbar logo, now it is only responsive after re-render.
 
-> This template installs and sets up [Tailwind CSS](https://tailwindcss.com) with TypeScript support.
-
-## Usage
-
-```bash
-npx create-react-app --template tailwindcss-typescript
-```
-
-## Credits
-
-This project was made possible thanks to the following projects.
-
-1. [GeoffSelby/cra-template-tailwindcss](https://github.com/GeoffSelby/cra-template-tailwindcss) - A streamlined Tailwind CSS template for Create React App (in JavaScript).
-2. [cra-template-typescript](https://github.com/facebook/create-react-app/tree/master/packages/cra-template-typescript) - An official TypeScript template for create-react-app.
-
-## License
-
-MIT © [Sung M. Kim](https://sung.codes)
-# shoezzr
+Cart is yet to be implemented via Redux with the stripe payment gate.

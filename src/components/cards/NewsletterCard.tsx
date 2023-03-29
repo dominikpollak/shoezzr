@@ -9,10 +9,10 @@ const NewsletterCard = () => {
         onSubmit={handleSubmit}
         className="h-full w-[90%] rounded-sm border-2 border-orange-600 bg-[#1e2737] font-main text-white sm:w-[400px]"
       >
-        <div className="mb-2 flex w-full items-center justify-center bg-black text-center text-[2rem] font-extrabold text-orange-600">
+        <div className="mb-2 flex w-full items-center justify-center bg-black text-center text-[1.7rem] font-extrabold text-orange-600 sm:text-[2rem]">
           FREE DISCOUNT !
         </div>
-        <section className="p-5">
+        <section className="p-5 text-[0.9rem] sm:text-base">
           <p className="text-center">
             Join our our newsletter and get a free $5 discount for your next
             purchase.

@@ -18,7 +18,7 @@ export default function Home() {
       </div>
 
       <div className="homepage-body h-auto w-full pt-6">
-        <section className="flex h-[120vh] flex-col items-center justify-around sm:h-[190vh] md:h-auto xl:flex-row xl:items-start">
+        <section className="flex h-[120vh] flex-col items-center justify-around sm:h-[190vh] md:h-auto lg:flex-row lg:items-start">
           <HomepageCard
             image={JordanImg}
             link={'/jordan'}
@@ -47,7 +47,7 @@ export default function Home() {
           <SalesCard />
         </section>
 
-        <section className="mt-20 flex h-[250px] w-full items-center justify-center md:h-[320px]">
+        <section className="mt-20 flex h-[300px] w-full items-center justify-center md:h-[320px]">
           <NewsletterCard />
         </section>
       </div>

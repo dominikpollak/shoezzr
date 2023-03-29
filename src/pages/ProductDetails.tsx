@@ -5,6 +5,7 @@ import ShoeNameAnimation from '../components/animations/ShoeNameAnimation';
 import ImageZoom from '../components/ImageZoom';
 import { addToCart } from '../features/cartSlice';
 import sneakers from '../sneakers.json';
+import type { CartItem } from '../features/cartSlice';
 
 export default function ProductDetails() {
   const { slug } = useParams();
@@ -15,7 +16,7 @@ export default function ProductDetails() {
   const dispatch = useDispatch();
 
   const handleAddToCart = (product: object) => {
-    dispatch(addToCart(product));
+    dispatch(addToCart(product as CartItem));
   };
 
   useEffect(() => {
@@ -27,8 +28,8 @@ export default function ProductDetails() {
 
   return (
     <div className="mt-[1rem] flex h-auto w-screen justify-center font-main text-white sm:h-screen">
-      <main className="relative flex h-auto w-full flex-col rounded-lg bg-white bg-black/[0.5] p-2 sm:flex-row sm:p-0 md:h-[70%] lg:h-[60%] lg:w-[90%] xl:h-[85%] 2xl:w-[80%]">
-        <aside className="hidden h-auto w-full items-center justify-start overflow-hidden rounded-md bg-slate-50 sm:float-left sm:flex sm:w-[49%] md:h-1/2 lg:h-[60%] xl:h-[75%]">
+      <main className="relative flex h-auto w-full flex-col rounded-lg bg-white bg-black/[0.5] p-2 pb-10 sm:flex-row sm:p-0 sm:pb-2 md:h-[70%] lg:h-[60%] lg:w-[90%] xl:h-[85%] 2xl:w-[80%]">
+        <aside className="hidden w-full items-center justify-start overflow-hidden rounded-md bg-slate-50 sm:float-left sm:flex sm:h-[40%] sm:w-[49%] md:h-1/2 lg:h-[60%] xl:h-[75%]">
           <ImageZoom image={matchedShoe?.main_picture_url || ''} />
         </aside>
 
@@ -41,12 +42,14 @@ export default function ProductDetails() {
           </section>
 
           <section className="p-4">
-            <div className="float-right flex w-full justify-around pt-4 text-center text-[1rem] lg:w-[85%] xl:w-[65%] xl:text-[1.1rem] 2xl:w-[70%] 2xl:text-[1.2rem]">
-              <p className="flex items-center">
-                Released: {matchedShoe?.release_year || 'Unknown'}
+            <div className="float-right mr-2 flex w-full pt-4 text-center text-[1rem] lg:w-[85%] xl:w-[65%] xl:text-[1.1rem] 2xl:w-[70%] 2xl:text-[1.2rem]">
+              <p className="flex w-1/2 items-center">
+                <span className="mr-2 text-orange-600">Released: </span>
+                {matchedShoe?.release_year || 'Unknown'}
               </p>
-              <p className="flex items-center">
-                Designer: {matchedShoe?.designer || 'Unknown'}
+              <p className="flex w-1/2 items-center">
+                <span className="mr-2 text-orange-600">Designer: </span>
+                {matchedShoe?.designer || 'Unknown'}
               </p>
             </div>
           </section>
@@ -61,9 +64,13 @@ export default function ProductDetails() {
             />
             <div className="mt-2 flex w-full justify-between">
               <div className="flex flex-col py-3">
-                <p><span className='text-orange-600'>Size: </span>{shoeSize}</p>
                 <p>
-                 <span className='text-orange-600'>Color: </span><span className="capitalize">{shoeColor}</span>
+                  <span className="text-orange-600">Size: </span>
+                  {shoeSize}
+                </p>
+                <p>
+                  <span className="text-orange-600">Color: </span>
+                  <span className="capitalize">{shoeColor}</span>
                 </p>
               </div>
               <p className="p-3 text-[2rem]">

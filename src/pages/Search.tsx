@@ -17,7 +17,7 @@ const Search = () => {
 
   return (
     <>
-      <div className="my-5 flex w-full items-center justify-center p-2 text-center font-main text-[2rem] text-white sm:text-[2.5rem]">
+      <div className="my-5 flex w-full justify-center p-2 text-center font-main text-[2rem] text-white sm:text-[2.5rem]">
         {searchedShoes.length} search results for "{searchParams}"
       </div>
       <div className="grid h-auto w-full grid-cols-2 gap-6 px-6 pt-4 pb-32 sm:pt-12 md:grid-cols-3 lg:grid-cols-3 lg:px-16 xl:grid-cols-4 xl:px-24 2xl:grid-cols-5">
@@ -37,7 +37,7 @@ const Search = () => {
         })}
       </div>
       {searchedShoes.length === 0 && (
-        <div className="flex h-full w-full flex-col items-center justify-center font-main text-[2rem] text-white">
+        <div className="flex h-screen w-full flex-col items-center font-main text-[2rem] text-white">
           <p>No results found</p>
           <img
             src={SadEmoji}
