@@ -57,7 +57,7 @@ export default function Navbar() {
               Sales
             </NavLink>
           </section>
-          <section className="flex w-[25%] items-center justify-around sm:w-[15%] lg:w-[10%]">
+          <section className="flex w-[25%] items-center justify-around sm:w-[15%] xl:w-[10%]">
             <NavLink
               to="/cart"
               className="relative flex items-center justify-center text-xl text-black"

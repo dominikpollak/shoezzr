@@ -47,7 +47,7 @@ export default function ProductDetails() {
                 <span className="mr-2 text-orange-600">Released: </span>
                 {matchedShoe?.release_year || 'Unknown'}
               </p>
-              <p className="flex w-1/2 items-center">
+              <p className="flex w-1/2 items-center leading-tight">
                 <span className="mr-2 text-orange-600">Designer: </span>
                 {matchedShoe?.designer || 'Unknown'}
               </p>

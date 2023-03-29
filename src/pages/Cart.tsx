@@ -2,13 +2,16 @@ import { useSelector } from 'react-redux';
 import type { RootState } from '../features/store';
 import { useDispatch } from 'react-redux';
 import type { CartItem } from '../features/cartSlice';
-import { removeFromCart } from '../features/cartSlice';
+import { removeFromCart, removeAllFromCart } from '../features/cartSlice';
 
 const Cart = () => {
   const cart = useSelector((state: RootState) => state.cart);
   const dispatch = useDispatch();
   const removeItem = (item: object) => {
     dispatch(removeFromCart(item as CartItem));
+  };
+  const removeAllItems = () => {
+    dispatch(removeAllFromCart());
   };
 
   return (
@@ -37,6 +40,7 @@ const Cart = () => {
           </div>
         );
       })}
+      <button onClick={() => removeAllItems()}>Remove all</button>
     </div>
   );
 };
