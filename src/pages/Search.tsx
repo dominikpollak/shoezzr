@@ -16,11 +16,11 @@ const Search = () => {
   );
 
   return (
-    <>
+    <div className="min-h-screen">
       <div className="my-5 flex w-full justify-center p-2 text-center font-main text-[2rem] text-white sm:text-[2.5rem]">
         {searchedShoes.length} search results for "{searchParams}"
       </div>
-      <div className="grid h-auto w-full grid-cols-2 gap-6 px-6 pt-4 pb-32 sm:pt-12 md:grid-cols-3 lg:grid-cols-3 lg:px-16 xl:grid-cols-4 xl:px-24 2xl:grid-cols-5">
+      <div className="grid h-auto w-full grid-cols-2 gap-6 px-6 pb-32 pt-1 md:grid-cols-3 lg:grid-cols-4 lg:px-16 xl:px-24 2xl:grid-cols-5">
         {searchedShoes.map((shoe, index) => {
           return (
             <ItemCard
@@ -48,7 +48,7 @@ const Search = () => {
           />
         </div>
       )}
-    </>
+    </div>
   );
 };
 

@@ -63,7 +63,7 @@ export default function Navbar() {
               className="relative flex items-center justify-center text-xl text-black"
             >
               <img className="w-[90%]" src={Cart} alt="cart icon" />
-              <div className="absolute -top-2 -right-2 flex h-[20px] w-[20px] items-center justify-center rounded-full bg-orange-600 p-1 text-[0.9rem] ">
+              <div className="absolute -top-2 -right-2 flex h-[20px] w-[20px] items-center justify-center rounded-full border-[1px] border-black bg-orange-600 p-1 text-[0.9rem] ">
                 {cart.cartTotalQuantity}
               </div>
             </NavLink>
