@@ -3,8 +3,11 @@ import Account from '../../assets/icons/account-icon.svg';
 import Cart from '../../assets/icons/cart-icon.svg';
 import BurgerMenu from './BurgerMenu';
 import SearchField from './SearchField';
+import { useSelector } from 'react-redux';
+import type { RootState } from '../../features/store';
 
 export default function Navbar() {
+  const cart = useSelector((state: RootState) => state.cart);
   return (
     <div className="w-screen">
       <div className="navbar relative z-40 ml-[20%] box-border flex h-[8vh] w-[80%] items-center justify-center pr-2 font-main lg:ml-[18%] lg:h-[10vh] lg:w-[82%]">
@@ -60,7 +63,9 @@ export default function Navbar() {
               className="relative flex items-center justify-center text-xl text-black"
             >
               <img className="w-[90%]" src={Cart} alt="cart icon" />
-              <div className="absolute bottom-0 right-0 z-[60] h-[10%] w-auto rounded-full bg-orange-600"></div>
+              <div className="absolute -top-2 -right-2 flex h-[20px] w-[20px] items-center justify-center rounded-full bg-orange-600 p-1 text-[0.9rem] ">
+                {cart.cartTotalQuantity}
+              </div>
             </NavLink>
             <NavLink
               to="/account"

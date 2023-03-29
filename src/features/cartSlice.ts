@@ -4,8 +4,9 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 export interface CartItem {
   id: number;
   name: string;
-  price: number;
+  retail_price_cents: number;
   cartQuantity: number;
+  main_picture_url: string;
 }
 
 interface CartState {
@@ -29,9 +30,11 @@ const cartSlice = createSlice({
       );
       if (itemIndex >= 0) {
         state.cartItems[itemIndex].cartQuantity += 1;
+        state.cartTotalQuantity += 1;
       } else {
         const tempProduct = { ...action.payload, cartQuantity: 1 };
         state.cartItems.push(tempProduct);
+        state.cartTotalQuantity += 1;
       }
     },
   },
