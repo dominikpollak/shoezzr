@@ -45,7 +45,7 @@ export default function ProductDetails() {
   return (
     <div className="mt-[1rem] flex h-auto w-screen justify-center font-main text-white sm:h-screen">
       {showModal && <CartModal setShowModal={setShowModal} />}
-      <main className="relative flex h-auto w-full flex-col rounded-lg bg-white bg-black/[0.5] p-2 pb-10 sm:w-[95%] sm:flex-row sm:p-0 sm:pb-2 md:h-[75%] lg:h-[85%] lg:w-[90%] 2xl:w-[80%]">
+      <main className="relative flex h-auto w-full flex-col rounded-lg bg-white bg-black/[0.5] p-2 pb-10 sm:w-[95%] sm:flex-row sm:p-0 sm:pb-2 md:h-[95%] lg:h-[90%] lg:w-[90%] 2xl:w-[80%]">
         <aside className="hidden w-full items-center justify-start overflow-hidden rounded-md bg-slate-50 sm:float-left sm:flex sm:h-[40%] sm:w-[49%] md:h-1/2 lg:h-[60%] xl:h-[75%]">
           <ImageZoom image={matchedShoe?.main_picture_url || ''} />
         </aside>

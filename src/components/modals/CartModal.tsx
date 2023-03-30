@@ -11,9 +11,11 @@ const CartModal: React.FC<CartModalProps> = ({ setShowModal }) => {
 
   return (
     <div className="fixed inset-0 z-[1000] flex h-screen w-screen items-center justify-center bg-black/40">
-      <div className="relative flex w-[60%] flex-col justify-between border-2 border-orange-600 bg-white p-2 text-black">
-        <h1 className="w-full text-center">ITEM ADDED TO THE CART</h1>
-        <div className="mt-5 flex">
+      <div className="relative flex h-[50%] w-[50%] flex-col justify-between border-2 border-orange-600 bg-white p-2 text-[1.1rem] text-black">
+        <h1 className="w-full text-center text-[1.2rem] font-bold">
+          ITEM ADDED TO THE CART
+        </h1>
+        <div className="mt-8 flex">
           <section className="flex h-[90%] w-[50%] pr-2">
             <div className="h-[90%] w-full">
               <img
@@ -41,14 +43,17 @@ const CartModal: React.FC<CartModalProps> = ({ setShowModal }) => {
             <h2>Total: ${cart.cartTotalAmount + 15}</h2>
           </section>
         </div>
-        <div className="flex w-[90%] justify-around">
+        <div className="ml-auto flex w-[50%] justify-around">
           <button
             onClick={() => setShowModal(false)}
-            className="rounded-sm bg-orange-600 p-2"
+            className="rounded-sm border-2 border-black bg-orange-600 p-2 duration-150 hover:bg-orange-500"
           >
             Continue shopping
           </button>
-          <Link to="/cart" className="rounded-sm bg-orange-600 p-2">
+          <Link
+            to="/cart"
+            className="rounded-sm border-2 border-black bg-orange-600 p-2 duration-150 hover:bg-orange-500"
+          >
             Checkout
           </Link>
         </div>
