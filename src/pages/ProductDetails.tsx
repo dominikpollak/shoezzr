@@ -60,11 +60,11 @@ export default function ProductDetails() {
 
           <section className="p-4">
             <div className="float-right mr-2 flex w-full pt-4 text-center text-[1rem] lg:w-[85%] xl:w-[65%] xl:text-[1.1rem] 2xl:w-[70%] 2xl:text-[1.2rem]">
-              <p className="flex w-1/2 items-center">
+              <p className="mr-4 flex items-center md:mr-8">
                 <span className="mr-2 text-orange-600">Released: </span>
                 {matchedShoe?.release_year || 'Unknown'}
               </p>
-              <p className="flex w-1/2 items-center leading-tight">
+              <p className="flex items-center leading-tight">
                 <span className="mr-2 text-orange-600">Designer: </span>
                 {matchedShoe?.designer || 'Unknown'}
               </p>
