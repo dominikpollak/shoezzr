@@ -106,21 +106,23 @@ export default function ProductDetails() {
               Colors variants:
             </h2>
             <ul>
-              {matchedShoe?.details.split('/').map((color, index) => {
-                return (
-                  <li
-                    key={index}
-                    className={
-                      shoeColor === color
-                        ? 'm-1 inline-block w-max cursor-pointer border-[1px] bg-orange-600 px-1'
-                        : 'm-1 inline-block w-max cursor-pointer border-[1px] px-1'
-                    }
-                    onClick={(e) => handleColorChange(color)}
-                  >
-                    {color}
-                  </li>
-                );
-              })}
+              {[...new Set(matchedShoe?.details.split('/'))].map(
+                (color, index) => {
+                  return (
+                    <li
+                      key={index}
+                      className={
+                        shoeColor === color
+                          ? 'm-1 inline-block w-max cursor-pointer border-[1px] bg-orange-600 px-1'
+                          : 'm-1 inline-block w-max cursor-pointer border-[1px] px-1'
+                      }
+                      onClick={(e) => handleColorChange(color)}
+                    >
+                      {color}
+                    </li>
+                  );
+                }
+              )}
             </ul>
           </div>
           <div className="pb-12 sm:pb-0">
