@@ -20,8 +20,13 @@ const LoadAnimations = () => {
         'landingbg absolute z-30 flex h-[8vh] w-screen items-center justify-center bg-slate-100 lg:h-[10vh]';
 
       headerRef.current.removeAttribute('style');
-      headerRef.current.className =
-        'absolute z-50 h-auto w-[70%] scale-[0.17] rounded-full bg-black p-14 md:p-24 -translate-x-[61.2%]';
+      if (window.innerWidth > 500) {
+        headerRef.current.className =
+          'absolute z-50 h-auto w-[70%] scale-[0.17] rounded-full bg-black p-14 md:p-24 -translate-x-[61.2%]';
+      } else {
+        headerRef.current.className =
+          'headercontainer absolute z-50 flex h-[200px] w-[200px] -translate-x-[80%] scale-[0.22] items-center rounded-full bg-black p-14';
+      }
     }
   };
 
@@ -77,7 +82,7 @@ const LoadAnimations = () => {
       tl.add(
         {
           targets: '.headercontainer',
-          scale: 0.17,
+          scale: document.body.clientWidth > 500 ? 0.17 : 0.22,
           duration: 650,
           easing: 'linear',
         },
@@ -85,7 +90,7 @@ const LoadAnimations = () => {
       );
       tl.add({
         targets: '.headercontainer',
-        translateX: '-360%',
+        translateX: document.body.clientWidth > 500 ? '-360%' : '-365%',
       });
       tl.add(
         {
@@ -134,7 +139,7 @@ const LoadAnimations = () => {
           className={
             location.pathname === '/'
               ? 'headercontainer absolute z-50 h-auto w-[70%] rounded-full p-24'
-              : 'absolute z-50 h-auto w-[70%] -translate-x-[60%] scale-[0.17] rounded-full bg-black p-14 md:p-24 lg:-translate-x-[62%]'
+              : 'headercontainer absolute z-50 flex h-[200px] w-[200px] -translate-x-[80%] scale-[0.22] items-center rounded-full bg-black p-14'
           }
         >
           <svg
@@ -229,8 +234,8 @@ const LoadAnimations = () => {
           ref={headerRef}
           className={
             location.pathname === '/'
-              ? 'headercontainer absolute z-50 flex h-[200px] w-[200px] items-center justify-center rounded-xl p-14'
-              : 'headercontainer absolute z-50 flex h-[200px] w-[200px] -translate-x-[30%] scale-[0.22] items-center rounded-xl bg-black p-14'
+              ? 'headercontainer absolute z-50 flex h-[200px] w-[200px] items-center justify-center rounded-full p-14'
+              : 'headercontainer absolute z-50 flex h-[200px] w-[200px] -translate-x-[30%] scale-[0.22] items-center rounded-full bg-black p-14'
           }
         >
           <svg

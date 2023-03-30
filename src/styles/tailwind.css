@@ -30,6 +30,7 @@
 
   .scrolling-disabled {
     overflow: hidden;
+    touch-action: none;
     pointer-events: none;
   }
 }
