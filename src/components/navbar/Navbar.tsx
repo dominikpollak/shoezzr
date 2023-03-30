@@ -1,10 +1,10 @@
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Account from '../../assets/icons/account-icon.svg';
 import Cart from '../../assets/icons/cart-icon.svg';
+import type { RootState } from '../../redux/store';
 import BurgerMenu from './BurgerMenu';
 import SearchField from './SearchField';
-import { useSelector } from 'react-redux';
-import type { RootState } from '../../features/store';
 
 export default function Navbar() {
   const cart = useSelector((state: RootState) => state.cart);

@@ -33,10 +33,12 @@ const cartSlice = createSlice({
       if (itemIndex >= 0) {
         state.cartItems[itemIndex].cartQuantity += 1;
         state.cartTotalQuantity += 1;
+        state.cartTotalAmount += action.payload.retail_price_cents / 100;
       } else {
         const tempProduct = { ...action.payload, cartQuantity: 1 };
         state.cartItems.push(tempProduct);
         state.cartTotalQuantity += 1;
+        state.cartTotalAmount += action.payload.retail_price_cents / 100;
       }
     },
     removeFromCart(state, action: PayloadAction<CartItem>) {
@@ -50,11 +52,13 @@ const cartSlice = createSlice({
           state.cartItems.splice(itemIndex, 1);
         }
         state.cartTotalQuantity -= 1;
+        state.cartTotalAmount -= action.payload.retail_price_cents / 100;
       }
     },
     removeAllFromCart(state) {
       if (state.cartItems.length > 0 && state.cartTotalQuantity > 0) {
         state.cartTotalQuantity = 0;
+        state.cartTotalAmount = 0;
         state.cartItems = [];
       }
     },
