@@ -23,7 +23,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
       to={link}
       className="group/body relative flex flex-col rounded-md bg-white font-main ring-4 ring-white ring-offset-black duration-300 hover:ring-offset-4"
     >
-      <div className="w-full overflow-hidden sm:min-h-[160px] sm:p-4 sm:pt-0 xl:min-h-[240px]">
+      <div className="w-full overflow-hidden sm:min-h-[160px] sm:p-4 sm:pt-0 xl:min-h-[210px] 2xl:min-h-[230px]">
         <img
           src={img}
           alt=""
