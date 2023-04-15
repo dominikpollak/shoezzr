@@ -63,10 +63,23 @@ const cartSlice = createSlice({
         state.cartItems = [];
       }
     },
+    //function will set the quantity of the item based on the option selected in the cart dropdown
+    addItemsToCart(state, action: PayloadAction<CartItem>) {
+      const itemIndex = state.cartItems.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      if (itemIndex >= 0) {
+        state.cartItems[itemIndex].cartQuantity = action.payload.cartQuantity;
+        state.cartTotalQuantity = action.payload.cartQuantity;
+        state.cartTotalAmount =
+          (action.payload.retail_price_cents / 100) *
+          action.payload.cartQuantity;
+      }
+    },
   },
 });
 
-export const { addToCart, removeFromCart, removeAllFromCart } =
+export const { addToCart, removeFromCart, removeAllFromCart, addItemsToCart } =
   cartSlice.actions;
 
 export default cartSlice.reducer;
