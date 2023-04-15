@@ -153,16 +153,16 @@ export default function ProductDetails() {
                 Please select a size and color
               </p>
             )}
-            <div className="flex text-[1.2rem] ">
+            <div className="flex text-[1.1rem] ">
               <button
                 onClick={() =>
                   handleAddToCart({ ...matchedShoe, shoeColor, shoeSize } || {})
                 }
-                className="mr-3 rounded-sm bg-orange-600 p-4 text-black hover:bg-orange-500"
+                className="mr-3 rounded-sm bg-orange-600 p-3 text-black hover:bg-orange-500"
               >
                 Add to cart
               </button>
-              <button className="rounded-sm bg-orange-600 p-4 text-black hover:bg-orange-500">
+              <button className="rounded-sm bg-orange-600 p-3 text-black hover:bg-orange-500">
                 Favorite
               </button>
             </div>
@@ -175,7 +175,7 @@ export default function ProductDetails() {
               Please select a size and color
             </p>
           )}
-          <div className="flex text-[1.2rem] ">
+          <div className="flex sm:text-[1.2rem] ">
             <button
               onClick={() =>
                 handleAddToCart({ ...matchedShoe, shoeColor, shoeSize } || {})

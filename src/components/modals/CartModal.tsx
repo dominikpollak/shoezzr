@@ -30,7 +30,7 @@ const CartModal: React.FC<CartModalProps> = ({ setShowModal }) => {
       </div>
       <div
         ref={modalRef}
-        className="relative flex h-[75%] w-[95%] flex-col border-2 border-orange-600 bg-white p-2 text-[1.1rem] text-black sm:h-[50%] sm:w-[80%] md:w-[70%] lg:h-[50%] lg:w-[55%] xl:w-[50%]"
+        className="relative flex h-[85%] w-[95%] flex-col border-2 border-orange-600 bg-white p-2 text-[1.1rem] text-black sm:h-[50%] sm:w-[80%] md:w-[70%] lg:h-[50%] lg:w-[55%] xl:w-[50%]"
       >
         <h1 className="w-full text-center text-[1.2rem] font-bold">
           ITEM ADDED TO THE CART
