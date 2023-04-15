@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import type { RootState } from '../../redux/store';
 import { Link } from 'react-router-dom';
+import { useRef, useEffect } from 'react';
 
 interface CartModalProps {
   setShowModal: (showModal: boolean) => void;
@@ -8,10 +9,29 @@ interface CartModalProps {
 
 const CartModal: React.FC<CartModalProps> = ({ setShowModal }) => {
   const cart = useSelector((state: RootState) => state.cart);
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
+        setShowModal(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [setShowModal]);
 
   return (
-    <div className="fixed inset-0 z-[1000] flex h-screen w-screen items-center justify-center bg-black/40">
-      <div className="relative flex h-[75%] w-[95%] flex-col border-2 border-orange-600 bg-white p-2 text-[1.1rem] text-black sm:h-[50%] sm:w-[80%] md:w-[65%] lg:h-[50%] lg:w-[50%]">
+    <div className='fixed inset-0 z-10 flex items-center justify-center overflow-y-auto'>
+     <div className="fixed inset-0 transition-opacity" aria-hidden="true">
+        <div className="absolute inset-0 bg-black/70"></div>
+      </div>
+      <div
+        ref={modalRef}
+        className="relative flex h-[75%] w-[95%] flex-col border-2 border-orange-600 bg-white p-2 text-[1.1rem] text-black sm:h-[50%] sm:w-[80%] md:w-[70%] lg:h-[50%] lg:w-[55%] xl:w-[50%]"
+      >
         <h1 className="w-full text-center text-[1.2rem] font-bold">
           ITEM ADDED TO THE CART
         </h1>
@@ -22,9 +42,9 @@ const CartModal: React.FC<CartModalProps> = ({ setShowModal }) => {
             alt="last added item"
           />
         </div>
-        <div className="flex sm:mt-8">
+        <div className="flex sm:mt-8 h-[70%]">
           <section className="flex h-[90%] w-[65%] pr-2">
-            <div className="hidden h-[90%] w-full sm:block">
+            <div className="hidden h-[90%] w-full sm:flex  sm:justify-center">
               <img
                 src={cart.cartItems.slice(-1)[0].main_picture_url}
                 className="h-full w-auto"
@@ -41,7 +61,7 @@ const CartModal: React.FC<CartModalProps> = ({ setShowModal }) => {
               <h2>Quantity: {cart.cartItems.slice(-1)[0].cartQuantity}</h2>
             </div>
           </section>
-          <section className="h-[90%] border-l-2 border-black pl-2">
+          <section className="h-[70%] sm:h-[90%] border-l-2 border-black pl-2">
             <h2>Your cart:</h2>
             <h2>Total items: {cart.cartTotalQuantity}</h2>
             <h2>Total amount: ${cart.cartTotalAmount}</h2>
@@ -50,7 +70,7 @@ const CartModal: React.FC<CartModalProps> = ({ setShowModal }) => {
             <h2>Total: ${cart.cartTotalAmount + 15}</h2>
           </section>
         </div>
-        <div className="absolute bottom-3 right-2 flex w-[90%] justify-around sm:w-[70%] xl:w-[50%]">
+        <div className="absolute bottom-3 right-2 flex w-[95%] justify-around sm:w-[70%] xl:w-[50%]">
           <button
             onClick={() => setShowModal(false)}
             className="rounded-sm border-2 border-black bg-orange-600 p-2 duration-150 hover:bg-orange-500"
@@ -65,7 +85,7 @@ const CartModal: React.FC<CartModalProps> = ({ setShowModal }) => {
           </Link>
         </div>
       </div>
-    </div>
+      </div>
   );
 };
 
