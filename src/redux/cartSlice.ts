@@ -29,7 +29,10 @@ const cartSlice = createSlice({
   reducers: {
     addToCart(state, action: PayloadAction<CartItem>) {
       const itemIndex = state.cartItems.findIndex(
-        (item) => item.id === action.payload.id
+        (item) =>
+          item.id === action.payload.id &&
+          item.shoeSize === action.payload.shoeSize &&
+          item.shoeColor === action.payload.shoeColor
       );
       if (itemIndex >= 0) {
         state.cartItems[itemIndex].cartQuantity += 1;
@@ -66,7 +69,10 @@ const cartSlice = createSlice({
     //function will set the quantity of the item based on the option selected in the cart dropdown
     addItemsToCart(state, action: PayloadAction<CartItem>) {
       const itemIndex = state.cartItems.findIndex(
-        (item) => item.id === action.payload.id
+        (item) =>
+          item.id === action.payload.id &&
+          item.shoeSize === action.payload.shoeSize &&
+          item.shoeColor === action.payload.shoeColor
       );
       if (itemIndex >= 0) {
         state.cartItems[itemIndex].cartQuantity = action.payload.cartQuantity;
