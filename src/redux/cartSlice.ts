@@ -75,11 +75,11 @@ const cartSlice = createSlice({
           item.shoeColor === action.payload.shoeColor
       );
       if (itemIndex >= 0) {
-        state.cartItems[itemIndex].cartQuantity = action.payload.cartQuantity;
-        state.cartTotalQuantity = action.payload.cartQuantity;
-        state.cartTotalAmount =
-          (action.payload.retail_price_cents / 100) *
-          action.payload.cartQuantity;
+        const item = state.cartItems[itemIndex];
+        const quantityDiff = action.payload.cartQuantity - item.cartQuantity;
+        item.cartQuantity = action.payload.cartQuantity;
+        state.cartTotalQuantity += quantityDiff;
+        state.cartTotalAmount += quantityDiff * (item.retail_price_cents / 100);
       }
     },
   },

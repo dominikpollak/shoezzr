@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import type { CartItem } from '../redux/cartSlice';
 import {
   addItemsToCart,
-  addToCart,
   removeAllFromCart,
   removeFromCart,
 } from '../redux/cartSlice';
@@ -22,10 +21,6 @@ const Cart = () => {
     dispatch(removeAllFromCart());
   };
 
-  const addItem = (item: CartItem) => {
-    dispatch(addToCart(item as CartItem));
-  };
-
   const addItems = (item: CartItem) => {
     dispatch(addItemsToCart(item as CartItem));
   };
@@ -37,9 +32,9 @@ const Cart = () => {
     const amount = parseInt(e.target.value);
 
     if (amount === 0) {
-      dispatch(removeFromCart(item));
+      removeItem(item);
     } else {
-      dispatch(addItemsToCart({ ...item, cartQuantity: amount }));
+      addItems({ ...item, cartQuantity: amount });
     }
   };
 
@@ -68,7 +63,7 @@ const Cart = () => {
               <label className="">
                 Quantity:
                 <select
-                  className="ml-2 rounded-sm border-[1px] border-white bg-transparent text-center"
+                  className="ml-2 rounded-sm border-[1px] border-orange-600 bg-black text-center text-white"
                   name="cartQuantity"
                   id="cartQuantity"
                   onChange={(e) => handleAmountSelection(e, item)}
@@ -93,7 +88,6 @@ const Cart = () => {
       <h2>Total items: {cart.cartTotalQuantity}</h2>
       <h2>Total amount: ${cart.cartTotalAmount}</h2>
       <h2>Delivery price: $15</h2>
-      <hr className="my-2 border-[1px] border-black" />
       <h2>Total: ${cart.cartTotalAmount + 15}</h2>
       <button onClick={() => removeAllItems()}>Remove all</button>
     </div>
